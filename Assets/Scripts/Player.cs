@@ -26,7 +26,6 @@ public class Player : MonoBehaviour
         
     }
 
-
     //called at a fixed interval and is independent of frame rate. physics code here
     private void FixedUpdate()
     {
