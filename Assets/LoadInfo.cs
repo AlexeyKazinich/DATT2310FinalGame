@@ -17,6 +17,8 @@ public class LoadInfo : MonoBehaviour
         {
             level.text = "Unable to set";
         }
+
+        //delete this after, its for testing
         PlayerInfo.level += 1;
     }
 
