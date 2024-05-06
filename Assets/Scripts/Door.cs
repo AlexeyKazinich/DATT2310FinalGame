@@ -16,6 +16,7 @@ public class Door : MonoBehaviour
 
     void Start()
     {  
+        // MainMenu is scene 0
         numberOfScene = SceneManager.sceneCountInBuildSettings; // Total number of scene in the build
         currentScene =  SceneManager.GetActiveScene().buildIndex; // Index of the current scene
     }
@@ -34,7 +35,7 @@ public class Door : MonoBehaviour
             int nextScene = currentScene;
             while (nextScene == currentScene)
             {
-                nextScene = Random.Range(0, numberOfScene);
+                nextScene = Random.Range(1, numberOfScene);
             }
             SceneManager.LoadScene(nextScene);
         }
