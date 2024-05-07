@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     {
         
     }
-
+     
     // Update is called once per frame
     void Update()
     {
@@ -23,7 +23,13 @@ public class Player : MonoBehaviour
 
         //normalize to create snappy movement
         move = new Vector2(moveX, moveY).normalized;
-        
+
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            TakeDamage(2);
+        }
+
     }
 
     //called at a fixed interval and is independent of frame rate. physics code here
@@ -39,4 +45,22 @@ public class Player : MonoBehaviour
             playerRigidBody.velocity = Vector2.zero; //if player is not holding down movement keys, stop the player from moving
         }
     }
+
+
+    public void updateXP(int amount)
+    {
+        //This needs some work
+        PlayerInfo.addXP(amount);
+    }
+
+
+    public void TakeDamage(float damageAmount)
+    {
+        //currently using an INT, will need to be updated to a float probably
+        PlayerInfo.CurrentHealth -= (int)damageAmount;
+
+
+    }
+
+
 }

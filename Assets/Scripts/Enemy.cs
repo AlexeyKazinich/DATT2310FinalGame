@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     {
         this.health -= damageAmount;
         healthBar.UpdateHealthBar(health,maxHealth);
-        if(this.health < 0)
+        if(this.health <= 0)
         {
             Die();
         }
@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        GameObject.Find("Player").GetComponent<Player>().updateXP(15);
         Destroy(gameObject);
     }
 
