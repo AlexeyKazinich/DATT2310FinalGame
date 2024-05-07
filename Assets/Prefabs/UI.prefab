@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2216981, g: 1, b: 0.25172216, a: 1}
+  m_Color: {r: 1, g: 0.2235294, b: 0.2235294, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 6267301835894873359}
   - component: {fileID: 2604724007790113860}
   m_Layer: 5
-  m_Name: level
+  m_Name: levelText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -568,7 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fce3a720a1b82554db85d46c663d0924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 2604724007790113860}
+  levelText: {fileID: 2604724007790113860}
 --- !u!1 &7645187406398064412
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,7 +655,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.988
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

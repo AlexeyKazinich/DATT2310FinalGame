@@ -5,26 +5,24 @@ using UnityEngine.UI;
 
 public class LoadInfo : MonoBehaviour
 {
-    [SerializeField] Text level;
+    [SerializeField] Text levelText;
 
     private FloatingHealthBar healthBar;
     private FloatingHealthBar xpBar;
+
     // Start is called before the first frame update
     void Start()
     {
         try
         {
-            level.text = "Level: " + PlayerInfo.level;
+            levelText.text = "Level: " + PlayerInfo.level;
         }
         catch
         {
-            level.text = "Unable to set";
+            levelText.text = "Unable to set";
         }
 
-        //delete this after, its for testing
-        PlayerInfo.level += 1;
-
-
+        //get UI components
         healthBar = GameObject.Find("PlayerHealthBar").GetComponent<FloatingHealthBar>();
         xpBar = GameObject.Find("PlayerXPBar").GetComponent<FloatingHealthBar>();
     }
@@ -32,8 +30,9 @@ public class LoadInfo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //update the healthbar and the XP bar
+        //update the healthbar and the XP bar, prob better to call this somewhere else
         healthBar.UpdateHealthBar(PlayerInfo.CurrentHealth, PlayerInfo.MaxHealth);
         xpBar.UpdateHealthBar(PlayerInfo.CurrentXP, PlayerInfo.MaxXP);
+        levelText.text = "Level: " + PlayerInfo.level;
     }
 }

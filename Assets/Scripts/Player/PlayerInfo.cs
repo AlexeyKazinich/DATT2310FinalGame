@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerInfo : MonoBehaviour
 {
     //these are just defaults
-    public static int CurrentHealth = 15;
-    public static int MaxHealth = 15;
+    public static int CurrentHealth = 100;
+    public static int MaxHealth = 100;
     public static int CurrentXP = 0;
     public static int MaxXP = 100;
     public static int level = 1;
