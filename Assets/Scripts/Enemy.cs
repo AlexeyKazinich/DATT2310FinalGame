@@ -14,12 +14,15 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rb;
     private Transform target;
     private Vector2 moveDirection;
-
+    public SpriteRenderer spriteRenderer;
+    public Sprite[] sprites;
+    private int spriteIndex = 0;
     [SerializeField] FloatingHealthBar healthBar;
 
     private void Awake()
     {
         healthBar = GetComponentInChildren<FloatingHealthBar>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -43,6 +46,8 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         target = GameObject.Find("Player").transform;
+
+        InvokeRepeating(nameof(AnimateSprite), 0.15f, 0.15f);
     }
 
     // Update is called once per frame
@@ -58,7 +63,15 @@ public class Enemy : MonoBehaviour
 
         
     }
+    public void AnimateSprite(){
+        spriteIndex++;
 
+        if(spriteIndex >= sprites.Length){
+            spriteIndex = 0;
+        }
+
+        spriteRenderer.sprite = sprites[spriteIndex];
+    }
 
     private void FixedUpdate()
     {

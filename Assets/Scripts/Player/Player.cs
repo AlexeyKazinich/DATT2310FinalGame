@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -8,28 +9,79 @@ public class Player : MonoBehaviour
 
     public float speed = 0.3f;
     private Vector2 move;
-
+    public SpriteRenderer spriteRenderer;
+    public Sprite[] idleSprites;
+    private int idleIndex = 0;
+    public Sprite[] movingSprites;
+    private int movementIndex = 0;
+    //private Animator animator;
+    //public float animationSpeed = 1f;
     // Start is called before the first frame update
     void Start()
     {
         
     }
-     
+     public void Awake(){
+        spriteRenderer = GetComponent<SpriteRenderer>();
+     }
     // Update is called once per frame
     void Update()
     {
+        
         float moveX = Input.GetAxisRaw("Horizontal"); // A/D or Left/Right Arrow keys
         float moveY = Input.GetAxisRaw("Vertical"); // W/S or Up/Down Arrow keys
 
         //normalize to create snappy movement
         move = new Vector2(moveX, moveY).normalized;
 
-
+        if(moveX < 0f){
+            Debug.Log("Left");
+            spriteRenderer.flipX = true;
+            PlayerMoving();
+        }
+        else if(moveX > 0f){
+            Debug.Log("Right");
+            spriteRenderer.flipX = false;
+            PlayerMoving();
+        }
+        else if(moveY < 0f){
+            Debug.Log("Down");
+            PlayerMoving();
+        }
+        else if(moveY > 0f){
+            Debug.Log("Up");
+            PlayerMoving();
+        }
+        else if(move == Vector2.zero){
+            PlayerIdle();
+        }
         if (Input.GetKeyDown(KeyCode.G))
         {
             TakeDamage(2);
         }
 
+    }
+
+    private void PlayerIdle(){
+        idleIndex++;
+
+        if(idleIndex >= idleSprites.Length){
+            idleIndex = 0;
+        }
+
+        spriteRenderer.sprite = idleSprites[idleIndex];
+
+        //animator.speed = animationSpeed;
+    }
+    private void PlayerMoving(){
+        movementIndex++;
+
+        if(movementIndex >= movingSprites.Length){
+            movementIndex = 0;
+        }
+
+        spriteRenderer.sprite = movingSprites[movementIndex];
+        //animator.speed = animationSpeed;
     }
 
     //called at a fixed interval and is independent of frame rate. physics code here
