@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerInfo : MonoBehaviour
 {
@@ -19,7 +20,18 @@ public class PlayerInfo : MonoBehaviour
         if(CurrentXP >= MaxXP)
         {
             CurrentXP -= MaxXP;
-            level++;
+            LevelUp();
         }
+    }
+
+
+    private static void LevelUp()
+    {
+        level++;
+
+        System.Random rnd = new System.Random();
+        int bonusHealth = rnd.Next(1,6); //random number between 1 and 5
+        CurrentHealth += bonusHealth;
+        MaxHealth += bonusHealth;
     }
 }

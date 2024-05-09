@@ -135,6 +135,7 @@ public class Player : MonoBehaviour
     }
 
 
+
     public void TakeDamage(float damageAmount)
     {
         //currently using an INT, will need to be updated to a float probably

@@ -43,7 +43,9 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        //give xp
         GameObject.Find("Player").GetComponent<Player>().updateXP(35);
+
         Destroy(gameObject);
     }
 
@@ -64,7 +66,10 @@ public class Enemy : MonoBehaviour
             moveDirection = direction;
         }
 
-
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            TakeDamage(2);
+        }
         
 
         
