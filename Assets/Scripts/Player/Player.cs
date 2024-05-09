@@ -18,8 +18,10 @@ public class Player : MonoBehaviour
     //slow down the animation
     private int animSpeed = 3;
     private int animCounter = 0;
-    //private Animator animator;
-    //public float animationSpeed = 1f;
+
+    public ProjectileBehaviour ProjectilePrefab;
+    public Transform LaunchOffset;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,8 +33,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
+
+        //check if player is trying to shoot
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Instantiate(ProjectilePrefab,LaunchOffset.position,transform.rotation);
+        }
 
         
 
@@ -123,6 +129,8 @@ public class Player : MonoBehaviour
         {
             PlayerIdle();
         }
+
+
 
 
     }

@@ -13,6 +13,9 @@ public class PlayerInfo : MonoBehaviour
     public static int level = 1;
 
 
+    public static int BaseDamage = 5;
+
+
 
     public static void addXP(int xp)
     {
@@ -20,6 +23,7 @@ public class PlayerInfo : MonoBehaviour
         if(CurrentXP >= MaxXP)
         {
             CurrentXP -= MaxXP;
+            MaxXP = ((int)(MaxXP*1.3)); //30% increase to max xp every level
             LevelUp();
         }
     }
