@@ -105,24 +105,20 @@ public class Player : MonoBehaviour
         //animation
         if (moveX < 0f)
         {
-            Debug.Log("Left");
             spriteRenderer.flipX = true;
             PlayerMoving();
         }
         else if (moveX > 0f)
         {
-            Debug.Log("Right");
             spriteRenderer.flipX = false;
             PlayerMoving();
         }
         else if (moveY < 0f)
         {
-            Debug.Log("Down");
             PlayerMoving();
         }
         else if (moveY > 0f)
         {
-            Debug.Log("Up");
             PlayerMoving();
         }
         else if (move == Vector2.zero)

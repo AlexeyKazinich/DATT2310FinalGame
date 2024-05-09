@@ -13,7 +13,14 @@ public class PlayerInfo : MonoBehaviour
     public static int level = 1;
 
 
+    //base damage for left clicking mobs
     public static int BaseDamage = 5;
+
+
+    //player abilities
+    public static string Ability1 = null;
+    public static string Ability2 = null;
+    public static string Ability3 = null;
 
 
 

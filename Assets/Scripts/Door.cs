@@ -7,6 +7,7 @@ public class Door : MonoBehaviour
 {   
     private int numberOfScene;
     private int currentScene;
+
     // Start is called before the first frame update
 
     void Awake()
@@ -30,14 +31,25 @@ public class Door : MonoBehaviour
     // Switch to a scene when collide with player
     void OnTriggerEnter2D(Collider2D player)
     {
+        
+        //hit door display upgrade UI
         if (player.gameObject.CompareTag("Player"))
         {
-            int nextScene = currentScene;
-            while (nextScene == currentScene)
-            {
-                nextScene = Random.Range(1, numberOfScene);
-            }
-            SceneManager.LoadScene(nextScene);
+            print("Hit door trigger");
+            GameObject.Find("UI").GetComponent<LoadInfo>().EnableUpgradeWindow();
+            
         }
+    }
+
+
+    public void SwitchScene()
+    {
+        print("switch scene triggered");
+        int nextScene = currentScene;
+        while (nextScene == currentScene)
+        {
+            nextScene = Random.Range(1, numberOfScene);
+        }
+        SceneManager.LoadScene(nextScene);
     }
 }
