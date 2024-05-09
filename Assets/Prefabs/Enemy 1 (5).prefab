@@ -495,6 +495,14 @@ MonoBehaviour:
   maxHealth: 10
   moveSpeed: 0.1
   damage: 3
+  spriteRenderer: {fileID: 0}
+  sprites:
+  - {fileID: 21300000, guid: fc6d2c7c354579f47a5d14620bb3a1eb, type: 3}
+  - {fileID: 21300000, guid: d86f2067617ecb34fb5e9abe90be8226, type: 3}
+  - {fileID: 21300000, guid: 0662e95438a67d949a39f057c76bb36d, type: 3}
+  - {fileID: 21300000, guid: 50d826737b7768e47b19102794a0d655, type: 3}
+  - {fileID: 21300000, guid: 78eca808585db4a48ad237070d25a249, type: 3}
+  - {fileID: 21300000, guid: 55bd6d2c704d7de439f213959f2ccf1f, type: 3}
   healthBar: {fileID: 0}
 --- !u!61 &4580777276758725345
 BoxCollider2D:

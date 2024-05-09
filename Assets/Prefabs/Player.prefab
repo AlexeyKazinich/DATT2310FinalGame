@@ -102,6 +102,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRigidBody: {fileID: 5002399314228726786}
   speed: 5
+  spriteRenderer: {fileID: 0}
+  idleSprites:
+  - {fileID: 21300000, guid: 9ac58e40e142c654c834cb3ac819abd6, type: 3}
+  - {fileID: 21300000, guid: fc6ff5a36baebc541938ebd0256befe3, type: 3}
+  - {fileID: 21300000, guid: 056e522c13895cd4abc5c4343e0db3d1, type: 3}
+  - {fileID: 21300000, guid: cc218ab49055fe042afd0200008d7e48, type: 3}
+  - {fileID: 21300000, guid: 6dd31d2674fc734489894627ee8aabea, type: 3}
+  - {fileID: 21300000, guid: 0d2a5c135e74ae547bbd39eb999a43f1, type: 3}
+  movingSprites:
+  - {fileID: 21300000, guid: 92811c99bd5ca08489141673e22d98cc, type: 3}
+  - {fileID: 21300000, guid: da7e4192c46837a47b7ccb12bb00d1d9, type: 3}
+  - {fileID: 21300000, guid: 548ea058514c9024d8f5f7bdf0bebe54, type: 3}
+  - {fileID: 21300000, guid: abc2495932bad8e4383ad5035e5f65cb, type: 3}
+  - {fileID: 21300000, guid: a7e7fa613b8c5da4e8f9a5b183a21081, type: 3}
+  - {fileID: 21300000, guid: dd0d33b666e18cb4380322aafa5b9442, type: 3}
 --- !u!50 &5002399314228726786
 Rigidbody2D:
   serializedVersion: 4

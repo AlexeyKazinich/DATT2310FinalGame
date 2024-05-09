@@ -14,6 +14,10 @@ public class Player : MonoBehaviour
     private int idleIndex = 0;
     public Sprite[] movingSprites;
     private int movementIndex = 0;
+
+    //slow down the animation
+    private int animSpeed = 3;
+    private int animCounter = 0;
     //private Animator animator;
     //public float animationSpeed = 1f;
     // Start is called before the first frame update
@@ -28,42 +32,22 @@ public class Player : MonoBehaviour
     void Update()
     {
         
-        float moveX = Input.GetAxisRaw("Horizontal"); // A/D or Left/Right Arrow keys
-        float moveY = Input.GetAxisRaw("Vertical"); // W/S or Up/Down Arrow keys
+        
 
-        //normalize to create snappy movement
-        move = new Vector2(moveX, moveY).normalized;
-
-        if(moveX < 0f){
-            Debug.Log("Left");
-            spriteRenderer.flipX = true;
-            PlayerMoving();
-        }
-        else if(moveX > 0f){
-            Debug.Log("Right");
-            spriteRenderer.flipX = false;
-            PlayerMoving();
-        }
-        else if(moveY < 0f){
-            Debug.Log("Down");
-            PlayerMoving();
-        }
-        else if(moveY > 0f){
-            Debug.Log("Up");
-            PlayerMoving();
-        }
-        else if(move == Vector2.zero){
-            PlayerIdle();
-        }
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            TakeDamage(2);
-        }
+        
 
     }
 
     private void PlayerIdle(){
-        idleIndex++;
+        if (animCounter == animSpeed)
+        {
+            idleIndex++;
+            animCounter = 0;
+        }
+        else
+        {
+            animCounter++;
+        }
 
         if(idleIndex >= idleSprites.Length){
             idleIndex = 0;
@@ -74,7 +58,15 @@ public class Player : MonoBehaviour
         //animator.speed = animationSpeed;
     }
     private void PlayerMoving(){
-        movementIndex++;
+        if(animCounter == animSpeed)
+        {
+            movementIndex++;
+            animCounter=0;
+        }
+        else
+        {
+            animCounter++;
+        }
 
         if(movementIndex >= movingSprites.Length){
             movementIndex = 0;
@@ -96,6 +88,43 @@ public class Player : MonoBehaviour
         {
             playerRigidBody.velocity = Vector2.zero; //if player is not holding down movement keys, stop the player from moving
         }
+
+
+        float moveX = Input.GetAxisRaw("Horizontal"); // A/D or Left/Right Arrow keys
+        float moveY = Input.GetAxisRaw("Vertical"); // W/S or Up/Down Arrow keys
+
+        //normalize to create snappy movement
+        move = new Vector2(moveX, moveY).normalized;
+
+        //animation
+        if (moveX < 0f)
+        {
+            Debug.Log("Left");
+            spriteRenderer.flipX = true;
+            PlayerMoving();
+        }
+        else if (moveX > 0f)
+        {
+            Debug.Log("Right");
+            spriteRenderer.flipX = false;
+            PlayerMoving();
+        }
+        else if (moveY < 0f)
+        {
+            Debug.Log("Down");
+            PlayerMoving();
+        }
+        else if (moveY > 0f)
+        {
+            Debug.Log("Up");
+            PlayerMoving();
+        }
+        else if (move == Vector2.zero)
+        {
+            PlayerIdle();
+        }
+
+
     }
 
 

@@ -19,6 +19,11 @@ public class Enemy : MonoBehaviour
     private int spriteIndex = 0;
     [SerializeField] FloatingHealthBar healthBar;
 
+
+    //slow down the animation
+    private int animSpeed = 3;
+    private int animCounter = 0;
+
     private void Awake()
     {
         healthBar = GetComponentInChildren<FloatingHealthBar>();
@@ -46,8 +51,6 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         target = GameObject.Find("Player").transform;
-
-        InvokeRepeating(nameof(AnimateSprite), 0.15f, 0.15f);
     }
 
     // Update is called once per frame
@@ -61,10 +64,31 @@ public class Enemy : MonoBehaviour
             moveDirection = direction;
         }
 
+
+        
+
         
     }
     public void AnimateSprite(){
-        spriteIndex++;
+        if (rb.velocity.x < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
+
+        }
+
+        if(animCounter == animSpeed)
+        {
+            spriteIndex++;
+            animCounter = 0;
+        }
+        else
+        {
+            animCounter++;
+        }
 
         if(spriteIndex >= sprites.Length){
             spriteIndex = 0;
@@ -79,6 +103,8 @@ public class Enemy : MonoBehaviour
         {
             rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
         }
+
+        AnimateSprite();
     }
 
 
@@ -87,7 +113,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.name == "Player")
         {
             //start after 1sec, and hit every 2sec
-            InvokeRepeating(nameof(HitPlayer), 1f, 2f);
+            InvokeRepeating(nameof(HitPlayer), 0f, 1f);
         }
 
     }
