@@ -8,6 +8,8 @@ public class Door : MonoBehaviour
     private int numberOfScene;
     private int currentScene;
 
+  
+
     // Start is called before the first frame update
 
     void Awake()
@@ -37,13 +39,13 @@ public class Door : MonoBehaviour
         {
             print("Hit door trigger");
             GameObject.Find("UI").GetComponent<LoadInfo>().EnableUpgradeWindow();
-            
         }
     }
 
 
     public void SwitchScene()
     {
+        
         print("switch scene triggered");
         int nextScene = currentScene;
         while (nextScene == currentScene)
@@ -51,5 +53,7 @@ public class Door : MonoBehaviour
             nextScene = Random.Range(1, numberOfScene);
         }
         SceneManager.LoadScene(nextScene);
+        
+        
     }
 }

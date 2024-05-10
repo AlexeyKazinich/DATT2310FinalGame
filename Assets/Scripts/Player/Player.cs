@@ -19,13 +19,15 @@ public class Player : MonoBehaviour
     private int animSpeed = 3;
     private int animCounter = 0;
 
+    
+
     public ProjectileBehaviour ProjectilePrefab;
     public Transform LaunchOffset;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
      public void Awake(){
         spriteRenderer = GetComponent<SpriteRenderer>();

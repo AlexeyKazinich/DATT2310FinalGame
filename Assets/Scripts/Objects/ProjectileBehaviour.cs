@@ -6,6 +6,8 @@ public class ProjectileBehaviour : MonoBehaviour
 {
     public float Speed = 4.5f;
 
+    // for projectile
+    public float lifeSpan = 3f;
 
     private Rigidbody2D rb;
     private Vector2 moveDirection;
@@ -31,6 +33,8 @@ public class ProjectileBehaviour : MonoBehaviour
         Vector3 direction = mousePos - transform.position;
         rb.velocity = new Vector2(direction.x, direction.y).normalized * Speed;
 
+        // added
+        Destroy(gameObject, lifeSpan);
     }
 
     // Update is called once per frame
