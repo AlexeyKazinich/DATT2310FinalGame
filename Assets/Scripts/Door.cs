@@ -8,8 +8,9 @@ public class Door : MonoBehaviour
     private int numberOfScene;
     private int currentScene;
 
-  
-
+    // for tab key
+    public bool tabKeyEnabled = true;
+    public bool controlKeysEnabled = true;
     // Start is called before the first frame update
 
     void Awake()
@@ -39,7 +40,11 @@ public class Door : MonoBehaviour
         {
             print("Hit door trigger");
             GameObject.Find("UI").GetComponent<LoadInfo>().EnableUpgradeWindow();
+            tabKeyEnabled = false;
+            controlKeysEnabled = false;
         }
+
+        
     }
 
 

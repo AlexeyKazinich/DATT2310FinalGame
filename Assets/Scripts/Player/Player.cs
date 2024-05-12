@@ -14,12 +14,14 @@ public class Player : MonoBehaviour
     private int idleIndex = 0;
     public Sprite[] movingSprites;
     private int movementIndex = 0;
-
+    
     //slow down the animation
     private int animSpeed = 3;
     private int animCounter = 0;
 
-    
+    // For player info when tab is hold
+    public GameObject playerInfoPanel;
+    //private bool isPlayerInfoVisible = false;
 
     public ProjectileBehaviour ProjectilePrefab;
     public Transform LaunchOffset;
@@ -27,7 +29,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+       playerInfoPanel.SetActive(false);
     }
      public void Awake(){
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -35,15 +37,23 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Door door = FindObjectOfType<Door>();
+
+        // For showing player info when tab is hold
+        if(Input.GetKeyDown(KeyCode.Tab) && door.tabKeyEnabled){
+            playerInfoPanel.SetActive(true);
+        }
+        else if(Input.GetKeyUp(KeyCode.Tab)){
+            playerInfoPanel.SetActive(false);
+        }
 
         //check if player is trying to shoot
         if (Input.GetButtonDown("Fire1"))
         {
             Instantiate(ProjectilePrefab,LaunchOffset.position,transform.rotation);
         }
-
         
-
+        
     }
 
     private void PlayerIdle(){
@@ -101,8 +111,14 @@ public class Player : MonoBehaviour
         float moveX = Input.GetAxisRaw("Horizontal"); // A/D or Left/Right Arrow keys
         float moveY = Input.GetAxisRaw("Vertical"); // W/S or Up/Down Arrow keys
 
-        //normalize to create snappy movement
-        move = new Vector2(moveX, moveY).normalized;
+        Door door = FindObjectOfType<Door>();
+
+        // checks if control keys are enabled
+        if(door.controlKeysEnabled){
+            //normalize to create snappy movement
+            move = new Vector2(moveX, moveY).normalized;
+        }
+        
 
         //animation
         if (moveX < 0f)
@@ -150,5 +166,5 @@ public class Player : MonoBehaviour
 
     }
 
-
+    
 }
