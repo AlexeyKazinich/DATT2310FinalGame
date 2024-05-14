@@ -27,6 +27,7 @@ public class LoadInfo : MonoBehaviour
     public Ability mistralBreath; //Wind ability
     public Ability ymirsWrath; //ICE ability
     public Ability shusShoes; //WIND
+    public Ability heal; //temp healing thing
 
     // Start is called before the first frame update
     void Start()
@@ -114,6 +115,43 @@ public class LoadInfo : MonoBehaviour
         {
             mistralBreath.CooldownUpdate(Time.deltaTime);
         }
+        if(shusShoes != null)
+        {
+            shusShoes.CooldownUpdate(Time.deltaTime);
+        }
+        if(heal != null)
+        {
+            heal.CooldownUpdate(Time.deltaTime);
+        }
+
+
+        //grey out the ability if cant use
+        if(PlayerInfo.ability1 != null && !PlayerInfo.ability1.IsReady())
+        {
+            GameObject.Find("Ability1").GetComponent<Image>().color = Color.grey;
+        }
+        else
+        {
+            GameObject.Find("Ability1").GetComponent<Image>().color = Color.white;
+        }
+
+        if(PlayerInfo.ability2 != null && !PlayerInfo.ability2.IsReady())
+        {
+            GameObject.Find("Ability2").GetComponent<Image>().color= Color.grey;
+        }
+        else
+        {
+            GameObject.Find("Ability2").GetComponent<Image>().color = Color.white;
+        }
+
+        if (PlayerInfo.ability3 != null && !PlayerInfo.ability3.IsReady())
+        {
+            GameObject.Find("Ability3").GetComponent<Image>().color = Color.grey;
+        }
+        else
+        {
+            GameObject.Find("Ability3").GetComponent<Image>().color = Color.white;
+        }
     }
 
 
@@ -146,11 +184,11 @@ public class LoadInfo : MonoBehaviour
             //randomize upgrade window
 
             //window 1
-            GameObject.Find("Upgrade1Window").GetComponent<UpgradeWindow>().SetAbility(fallingStar);
+            GameObject.Find("Upgrade1Window").GetComponent<UpgradeWindow>().SetAbility(heal);
             GameObject.Find("Upgrade1Image").GetComponent<Image>().sprite = GameObject.Find("Upgrade1Window").GetComponent<UpgradeWindow>().GetAbility().AbilityIcon;
 
             //window 2
-            GameObject.Find("Upgrade2Window").GetComponent<UpgradeWindow>().SetAbility(Susanoo);
+            GameObject.Find("Upgrade2Window").GetComponent<UpgradeWindow>().SetAbility(shusShoes);
             GameObject.Find("Upgrade2Image").GetComponent<Image>().sprite = GameObject.Find("Upgrade2Window").GetComponent<UpgradeWindow>().GetAbility().AbilityIcon;
 
             //window 3

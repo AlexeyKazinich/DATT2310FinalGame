@@ -1874,7 +1874,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2014,7 +2014,8 @@ MonoBehaviour:
   Susanoo: {fileID: 11400000, guid: 03637e5ddea921e45ae51f5e77bdadb3, type: 2}
   mistralBreath: {fileID: 11400000, guid: fbe01189042548243b311087ea7d8853, type: 2}
   ymirsWrath: {fileID: 0}
-  shusShoes: {fileID: 0}
+  shusShoes: {fileID: 11400000, guid: c7053713673e7de4896586f6f89e947a, type: 2}
+  heal: {fileID: 11400000, guid: 52ab1efc227e71d479158ff9e81cbadc, type: 2}
 --- !u!1 &6979044693920256002
 GameObject:
   m_ObjectHideFlags: 0

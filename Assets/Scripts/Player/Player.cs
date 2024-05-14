@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
         }
 
         //check if player trying to use abilities
-        if (Input.GetKey(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             print("pressing 1");
             if(PlayerInfo.ability1 != null)
@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
                 PlayerInfo.ability1.TryActivate();
             }
         }
-        if (Input.GetKey(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             print("pressing 2");
             if(PlayerInfo.ability2 != null)
@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
                 PlayerInfo.ability2.TryActivate();
             }
         }
-        if (Input.GetKey(KeyCode.Alpha3))
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             print("pressing 3");
             if (PlayerInfo.ability3 != null)

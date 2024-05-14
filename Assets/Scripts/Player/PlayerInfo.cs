@@ -29,7 +29,7 @@ public class PlayerInfo : MonoBehaviour
     public static Ability ability3 = null;
 
     //once it hits 6, next level is boss fight
-    public static int levelsGoneThrough = 0;
+    public static int levelsGoneThrough = 1;
 
 
     //fix this later
@@ -52,7 +52,7 @@ public class PlayerInfo : MonoBehaviour
         ability2 = null;
         ability3 = null;
 
-        levelsGoneThrough = 0;
+        levelsGoneThrough = 1;
 
 
     }
@@ -76,7 +76,7 @@ public class PlayerInfo : MonoBehaviour
 
         System.Random rnd = new System.Random();
         int choice = rnd.Next(1, 3); //random between 1 and 2
-        
+
 
         switch (choice)
         {
@@ -91,7 +91,13 @@ public class PlayerInfo : MonoBehaviour
                 PlayerSpeed += bnsSpeed;
                 break;
         }
-
         
+    }
+
+    public static void Heal(int amount)
+    {
+        CurrentHealth += amount;
+        if (CurrentHealth >= MaxHealth)
+            CurrentHealth = MaxHealth;
     }
 }

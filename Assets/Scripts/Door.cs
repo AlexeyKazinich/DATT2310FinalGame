@@ -58,8 +58,8 @@ public class Door : MonoBehaviour
         {
             nextScene = Random.Range(1, numberOfScene-2);
         }
-        
-        
+
+        PlayerInfo.levelsGoneThrough += 1;
         SceneManager.LoadScene(nextScene);
     }
 }

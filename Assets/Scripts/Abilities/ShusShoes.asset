@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3d0a630a5f8cfc448e009196b487314, type: 3}
-  m_Name: MistralBreath
+  m_Script: {fileID: 11500000, guid: f39b91cb2d2d45f4681a06cc8bc191e0, type: 3}
+  m_Name: ShusShoes
   m_EditorClassIdentifier: 
-  AbilityName: Mistral Breath
-  Cooldown: 4
-  AbilityIcon: {fileID: 21300000, guid: 4b4b8f0a475bec74c868906218cea7db, type: 3}
-  damageAmount: 6
+  AbilityName: Shus Shoes
+  Cooldown: 6
+  AbilityIcon: {fileID: 21300000, guid: bfe10a5158cc97d4a83f845e92e7c1a9, type: 3}
