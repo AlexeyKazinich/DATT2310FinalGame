@@ -234,6 +234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 181642745266145930}
+  - component: {fileID: 7331635478703330725}
   m_Layer: 5
   m_Name: Upgrade1Window
   m_TagString: Untagged
@@ -262,6 +263,19 @@ RectTransform:
   m_AnchoredPosition: {x: -472, y: 0}
   m_SizeDelta: {x: 634.4592, y: 741.4044}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7331635478703330725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507331594621647155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a88aa3babbe0694bb75cd92537d4c71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 0}
 --- !u!1 &1568534045594253427
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,13 +481,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1433009908528797478}
         m_TargetAssemblyTypeName: LoadInfo, Assembly-CSharp
         m_MethodName: OnButtonClick
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
-          m_StringArgument: '"Blue"'
+          m_StringArgument: 2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &2247223864667246584
@@ -955,6 +969,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6808331760104966351}
+  - component: {fileID: 179434649224553901}
   m_Layer: 5
   m_Name: Upgrade3Window
   m_TagString: Untagged
@@ -983,6 +998,19 @@ RectTransform:
   m_AnchoredPosition: {x: 568, y: 0}
   m_SizeDelta: {x: 634.4592, y: 741.4044}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &179434649224553901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4487433478666696466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a88aa3babbe0694bb75cd92537d4c71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 0}
 --- !u!1 &4656019456628309098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,6 +1368,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2883745860193588108}
+  - component: {fileID: 3884562369621475916}
   m_Layer: 5
   m_Name: Upgrade2Window
   m_TagString: Untagged
@@ -1368,6 +1397,19 @@ RectTransform:
   m_AnchoredPosition: {x: 51, y: 0}
   m_SizeDelta: {x: 634.4592, y: 741.4044}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3884562369621475916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5572454375472988846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a88aa3babbe0694bb75cd92537d4c71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 0}
 --- !u!1 &5677835680918805338
 GameObject:
   m_ObjectHideFlags: 0
@@ -1492,13 +1534,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1433009908528797478}
         m_TargetAssemblyTypeName: LoadInfo, Assembly-CSharp
         m_MethodName: OnButtonClick
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
-          m_StringArgument: '"Blue"'
+          m_StringArgument: 3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6069238305724041817
@@ -1893,6 +1935,9 @@ MonoBehaviour:
   Upgrade1Image: {fileID: 1409927697882948033}
   Upgrade1Button: {fileID: 4482447018118237677}
   UpgradeWindow: {fileID: 2247223864667246584}
+  fallingStar: {fileID: 11400000, guid: 5b8fedc1a8ea3654e8b0eff3ff8eb8a6, type: 2}
+  Susanoo: {fileID: 11400000, guid: 03637e5ddea921e45ae51f5e77bdadb3, type: 2}
+  mistralBreath: {fileID: 11400000, guid: fbe01189042548243b311087ea7d8853, type: 2}
 --- !u!1 &6979044693920256002
 GameObject:
   m_ObjectHideFlags: 0
@@ -2092,13 +2137,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1433009908528797478}
         m_TargetAssemblyTypeName: LoadInfo, Assembly-CSharp
         m_MethodName: OnButtonClick
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: '"orange"'
+          m_StringArgument: 1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &7645187406398064412

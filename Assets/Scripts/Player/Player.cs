@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     public ProjectileBehaviour ProjectilePrefab;
     public Transform LaunchOffset;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,8 +53,56 @@ public class Player : MonoBehaviour
         {
             Instantiate(ProjectilePrefab,LaunchOffset.position,transform.rotation);
         }
-        
-        
+
+        //check if player trying to use abilities
+        if (Input.GetKey(KeyCode.Alpha1))
+        {
+            print("pressing 1");
+            if(PlayerInfo.ability1 != null)
+            {
+                print("ability is not null");
+                PlayerInfo.ability1.TryActivate();
+            }
+        }
+        if (Input.GetKey(KeyCode.Alpha2))
+        {
+            print("pressing 2");
+            if(PlayerInfo.ability2 != null)
+            {
+                print("ability is not null");
+                PlayerInfo.ability2.TryActivate();
+            }
+        }
+        if (Input.GetKey(KeyCode.Alpha3))
+        {
+            print("pressing 3");
+            if (PlayerInfo.ability3 != null)
+            {
+                print("ability is not null");
+                PlayerInfo.ability3.TryActivate();
+            }
+        }
+
+
+    }
+
+    public void AssignAbility(int index, Ability ability)
+    {
+        switch (index)
+        {
+            case 0:
+                PlayerInfo.ability1 = ability;
+                break;
+            case 1:
+                PlayerInfo.ability2 = ability;
+                break;
+            case 2:
+                PlayerInfo.ability3 = ability;
+                break;
+            default:
+                Debug.LogWarning("Ability index out of range.");
+                break;
+        }
     }
 
     private void PlayerIdle(){

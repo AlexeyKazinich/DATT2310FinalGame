@@ -23,6 +23,12 @@ public class PlayerInfo : MonoBehaviour
     public static string Ability3 = null;
 
 
+    public static Ability ability1;
+    public static Ability ability2;
+    public static Ability ability3;
+
+
+
 
     public static void addXP(int xp)
     {

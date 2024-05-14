@@ -20,6 +20,12 @@ public class LoadInfo : MonoBehaviour
 
     [SerializeField] GameObject UpgradeWindow;
 
+
+    //abilities
+    public Ability fallingStar; //fire ability
+    public Ability Susanoo; //Lightning ability
+    public Ability mistralBreath; //Wind ability
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +51,7 @@ public class LoadInfo : MonoBehaviour
         {
             //Draw the ability the player has
             ability1.GetComponent<Image>().enabled = true;
+            ability1.sprite = PlayerInfo.ability1.AbilityIcon;
 
         }
         else
@@ -57,6 +64,7 @@ public class LoadInfo : MonoBehaviour
         {
             //Draw the ability the player has
             ability2.GetComponent<Image>().enabled = true;
+            ability2.sprite = PlayerInfo.ability2.AbilityIcon;
 
         }
         else
@@ -69,6 +77,7 @@ public class LoadInfo : MonoBehaviour
         {
             //Draw the ability the player has
             ability3.GetComponent<Image>().enabled = true;
+            ability3.sprite = PlayerInfo.ability3.AbilityIcon;
 
         }
         else
@@ -88,6 +97,21 @@ public class LoadInfo : MonoBehaviour
         healthBar.UpdateHealthBar(PlayerInfo.CurrentHealth, PlayerInfo.MaxHealth);
         xpBar.UpdateHealthBar(PlayerInfo.CurrentXP, PlayerInfo.MaxXP);
         levelText.text = "Level: " + PlayerInfo.level;
+
+
+        //update all abilities
+        if(fallingStar != null)
+        {
+            fallingStar.CooldownUpdate(Time.deltaTime);
+        }
+        if(Susanoo != null)
+        {
+            Susanoo.CooldownUpdate(Time.deltaTime);
+        }
+        if(mistralBreath != null)
+        {
+            mistralBreath.CooldownUpdate(Time.deltaTime);
+        }
     }
 
 
@@ -110,50 +134,112 @@ public class LoadInfo : MonoBehaviour
 
     public void EnableUpgradeWindow()
     {
-        /*
-        Upgrade1Image.enabled = true;
-        Upgrade1Button.enabled = true;
-        Upgrade1Button.image.enabled = true;
+        //if player has 3 abilities dont show upgrade screen
+        if (PlayerInfo.ability1 != null && PlayerInfo.ability2 != null && PlayerInfo.ability3 != null)
+            GameObject.Find("Door").GetComponent<Door>().SwitchScene();
+        else
+        {
+            UpgradeWindow.SetActive(true);
 
-        */
+            //randomize upgrade window
 
-        /*
+            //window 1
+            GameObject.Find("Upgrade1Window").GetComponent<UpgradeWindow>().SetAbility(fallingStar);
+            GameObject.Find("Upgrade1Image").GetComponent<Image>().sprite = GameObject.Find("Upgrade1Window").GetComponent<UpgradeWindow>().GetAbility().AbilityIcon;
 
-        Upgrade1Button.gameObject.SetActive(true);
-        Upgrade1Button.interactable = false;
-        Upgrade1Button.interactable = true;
-        Upgrade1Button.gameObject.GetComponent<Image>().raycastTarget = true;
+            //window 2
+            GameObject.Find("Upgrade2Window").GetComponent<UpgradeWindow>().SetAbility(Susanoo);
+            GameObject.Find("Upgrade2Image").GetComponent<Image>().sprite = GameObject.Find("Upgrade2Window").GetComponent<UpgradeWindow>().GetAbility().AbilityIcon;
 
-        */
-
-        UpgradeWindow.SetActive(true);
+            //window 3
+            GameObject.Find("Upgrade3Window").GetComponent<UpgradeWindow>().SetAbility(mistralBreath);
+            GameObject.Find("Upgrade3Image").GetComponent<Image>().sprite = GameObject.Find("Upgrade3Window").GetComponent<UpgradeWindow>().GetAbility().AbilityIcon;
+        }
     }
 
-    public void OnButtonClick(string type)
+    public void OnButtonClick(int type)
     {
-        print("BUtton clicked");
-        
-        AddAbility(type);
-        //find door script and change rooms
+
+        if (type == 1)
+        {
+            AddAbility(type);
+            print("Button 1 clicked");
+        }
+        if (type == 2)
+        {
+            AddAbility(type);
+            print("Button 2 clicked");
+        }
+        if (type == 3)
+        {
+            AddAbility(type);
+            print("Button 3 clicked");
+        }
+
         GameObject.Find("Door").GetComponent<Door>().SwitchScene();
-
     }
 
 
-    private void AddAbility(string type)
+    private void AddAbility(int type)
     {
-        if(PlayerInfo.Ability1 == null)
-        {
-            PlayerInfo.Ability1 = type;
-        }
-        else if (PlayerInfo.Ability2 == null)
-        {
-            PlayerInfo.Ability2 = type;
-        }
-        else if (PlayerInfo.Ability3 == null)
-        {
-            PlayerInfo.Ability3 = type;
-        }
+        Player player = GameObject.Find("Player").GetComponent<Player>();
+
+        
+
+        switch (type) {
+            case 1:
+                if (PlayerInfo.Ability1 == null)
+                {
+                    PlayerInfo.Ability1 = type.ToString();
+                    player.AssignAbility(0, GameObject.Find("Upgrade1Window").GetComponent<UpgradeWindow>().GetAbility());
+                }
+                else if (PlayerInfo.Ability2 == null)
+                {
+                    PlayerInfo.Ability2 = type.ToString();
+                    player.AssignAbility(1, GameObject.Find("Upgrade1Window").GetComponent<UpgradeWindow>().GetAbility());
+                }
+                else if (PlayerInfo.Ability3 == null)
+                {
+                    PlayerInfo.Ability3 = type.ToString();
+                    player.AssignAbility(2, GameObject.Find("Upgrade1Window").GetComponent<UpgradeWindow>().GetAbility());
+                }
+                break;
+
+            case 2:
+                if (PlayerInfo.Ability1 == null)
+                {
+                    PlayerInfo.Ability1 = type.ToString();
+                    player.AssignAbility(0, GameObject.Find("Upgrade2Window").GetComponent<UpgradeWindow>().GetAbility());
+                }
+                else if (PlayerInfo.Ability2 == null)
+                {
+                    PlayerInfo.Ability2 = type.ToString();
+                    player.AssignAbility(1, GameObject.Find("Upgrade2Window").GetComponent<UpgradeWindow>().GetAbility());
+                }
+                else if (PlayerInfo.Ability3 == null)
+                {
+                    PlayerInfo.Ability3 = type.ToString();
+                    player.AssignAbility(2, GameObject.Find("Upgrade2Window").GetComponent<UpgradeWindow>().GetAbility());
+                }
+                break;
+            case 3:
+                if (PlayerInfo.Ability1 == null)
+                {
+                    PlayerInfo.Ability1 = type.ToString();
+                    player.AssignAbility(0, GameObject.Find("Upgrade3Window").GetComponent<UpgradeWindow>().GetAbility());
+                }
+                else if (PlayerInfo.Ability2 == null)
+                {
+                    PlayerInfo.Ability2 = type.ToString();
+                    player.AssignAbility(1, GameObject.Find("Upgrade3Window").GetComponent<UpgradeWindow>().GetAbility());
+                }
+                else if (PlayerInfo.Ability3 == null)
+                {
+                    PlayerInfo.Ability3 = type.ToString();
+                    player.AssignAbility(2, GameObject.Find("Upgrade3Window").GetComponent<UpgradeWindow>().GetAbility());
+                }
+                break;
+                }
     }
 
 
