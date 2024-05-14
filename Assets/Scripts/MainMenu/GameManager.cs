@@ -51,8 +51,8 @@ public class GameManager : MonoBehaviour
         score = 0;
         //scoreText.text = score.ToString();
 
-        SceneManager.LoadScene("Scene 1");
-        enteredScenes[0] = "Scene 1";
+        SceneManager.LoadScene(1);
+        //enteredScenes[0] = "Scene 1";
     }
     public void Exit(){
         settings.SetActive(false);

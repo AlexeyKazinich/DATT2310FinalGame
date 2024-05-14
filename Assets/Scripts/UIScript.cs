@@ -25,6 +25,8 @@ public class LoadInfo : MonoBehaviour
     public Ability fallingStar; //fire ability
     public Ability Susanoo; //Lightning ability
     public Ability mistralBreath; //Wind ability
+    public Ability ymirsWrath; //ICE ability
+    public Ability shusShoes; //WIND
 
     // Start is called before the first frame update
     void Start()

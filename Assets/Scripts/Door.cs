@@ -56,7 +56,7 @@ public class Door : MonoBehaviour
         
         while (nextScene == currentScene)
         {
-            nextScene = Random.Range(1, numberOfScene);
+            nextScene = Random.Range(1, numberOfScene-2);
         }
         
         

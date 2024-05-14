@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] Rigidbody2D playerRigidBody;
 
-    public float speed = 0.3f;
     private Vector2 move;
     public SpriteRenderer spriteRenderer;
     public Sprite[] idleSprites;
@@ -149,7 +149,7 @@ public class Player : MonoBehaviour
         //if player holding movement keys
         if(move != Vector2.zero)
         {
-            playerRigidBody.velocity = move * speed; //set the player velocity to the move vector * the speed
+            playerRigidBody.velocity = move * PlayerInfo.PlayerSpeed; //set the player velocity to the move vector * the speed
         }
         else
         {
@@ -211,8 +211,16 @@ public class Player : MonoBehaviour
     {
         //currently using an INT, will need to be updated to a float probably
         PlayerInfo.CurrentHealth -= (int)damageAmount;
+        if (PlayerInfo.CurrentHealth < 0)
+            Die();
 
 
+    }
+
+    private void Die()
+    {
+        //player has died
+        SceneManager.LoadScene(5); //end scene
     }
 
     

@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] float health, maxHealth = 10;
 
-    [SerializeField] float moveSpeed = 0.2f;
-    
-    [SerializeField] float damage = 10;
+    [SerializeField] float health, maxHealth = 100f;
+    private float moveSpeed = 1.0f;
+    private float damage = 10;
+
+    private int xpWorth = 35;
 
     //moving enemy to the player
     private Rigidbody2D rb;
@@ -44,7 +45,7 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         //give xp
-        GameObject.Find("Player").GetComponent<Player>().updateXP(35);
+        GameObject.Find("Player").GetComponent<Player>().updateXP(xpWorth);
 
         Destroy(gameObject);
     }
