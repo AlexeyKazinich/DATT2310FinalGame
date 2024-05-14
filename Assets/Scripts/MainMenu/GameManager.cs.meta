@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 2da14b2e905fc6c49bcf6eda9e4f3bff
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - player: {instanceID: 0}
+  - scoreText: {instanceID: 0}
+  - startButton: {fileID: 1536047766994434480, guid: ee841182bb125444dbc6b86aa6030f50, type: 3}
+  - gameOver: {instanceID: 0}
+  - showCreators: {instanceID: 0}
+  - credits: {instanceID: 0}
+  - settings: {instanceID: 0}
+  - exitButton: {fileID: 1440046644753799228, guid: 610f0823716ae0c47af4468369bd900b, type: 3}
+  - pause: {instanceID: 0}
+  - resume: {instanceID: 0}
+  - showPrompt: {fileID: 5099591861876653562, guid: bd1bf883296a6f240b87277d3eaedead, type: 3}
+  - yes: {instanceID: 0}
+  - no: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

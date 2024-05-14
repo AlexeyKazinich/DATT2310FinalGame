@@ -12,7 +12,7 @@ public class Door : MonoBehaviour
     public bool tabKeyEnabled = true;
     public bool controlKeysEnabled = true;
     // Start is called before the first frame update
-
+    GameManager gameManager;
     void Awake()
     {
         
@@ -53,12 +53,13 @@ public class Door : MonoBehaviour
         
         print("switch scene triggered");
         int nextScene = currentScene;
+        
         while (nextScene == currentScene)
         {
             nextScene = Random.Range(1, numberOfScene);
         }
+        
+        
         SceneManager.LoadScene(nextScene);
-        
-        
     }
 }

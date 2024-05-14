@@ -11,6 +11,4 @@ public class StartGame : MonoBehaviour
         SceneManager.LoadScene("Scene 1");
     }
 
-
-
 }
