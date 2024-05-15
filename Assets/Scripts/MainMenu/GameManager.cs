@@ -29,16 +29,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*
-        yes = GameObject.Find("Yes").GetComponent<Button>();
-        yes.onClick.AddListener(Yes);
-
-        no = GameObject.Find("No").GetComponent<Button>();
-        no.onClick.AddListener(No);
-
-
-        showPrompt.SetActive(false);
-        */
+        
     }
 
     // Update is called once per frame
