@@ -59,7 +59,9 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // for testing
 
+        /*
         if (target)
         {
             Vector3 direction = (target.position - transform.position).normalized;
@@ -72,7 +74,7 @@ public class Enemy : MonoBehaviour
             TakeDamage(2);
         }
         
-
+    */
         
     }
     public void AnimateSprite(){

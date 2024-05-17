@@ -88,4 +88,7 @@ public class GameManager : MonoBehaviour
     public void ShowCreators(){
 
     }
+    public void Settings(){
+        
+    }
 }
