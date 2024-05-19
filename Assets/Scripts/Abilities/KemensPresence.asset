@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3d0a630a5f8cfc448e009196b487314, type: 3}
-  m_Name: MistralBreath
+  m_Script: {fileID: 11500000, guid: 9e346051f3d317f43abd865d0535ac7c, type: 3}
+  m_Name: KemensPresence
   m_EditorClassIdentifier: 
-  AbilityName: Mistral Breath
-  Cooldown: 4
-  AbilityIcon: {fileID: 21300000, guid: 74b027360a838ac47be57da9db34edbb, type: 3}
-  damageAmount: 6
+  AbilityName: Kemens Presence
+  Cooldown: 0
+  AbilityIcon: {fileID: 21300000, guid: 590f0642ad3d2c644905f798888bbe3b, type: 3}
