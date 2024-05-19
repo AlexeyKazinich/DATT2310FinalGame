@@ -26,6 +26,8 @@ public class Player : MonoBehaviour
     public ProjectileBehaviour ProjectilePrefab;
     public Transform LaunchOffset;
 
+    public bool invincible = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -210,9 +212,12 @@ public class Player : MonoBehaviour
     public void TakeDamage(float damageAmount)
     {
         //currently using an INT, will need to be updated to a float probably
-        PlayerInfo.CurrentHealth -= (int)damageAmount;
-        if (PlayerInfo.CurrentHealth < 0)
-            Die();
+        if (!invincible)
+        {
+            PlayerInfo.CurrentHealth -= (int)damageAmount;
+            if (PlayerInfo.CurrentHealth < 0)
+                Die();
+        }
 
 
     }
