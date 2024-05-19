@@ -36,6 +36,7 @@ public class Enemy : MonoBehaviour
     {
         this.health -= damageAmount;
         healthBar.UpdateHealthBar(health,maxHealth);
+        PlayerInfo.DamageDoneToEnemy((int)damageAmount); //change player Hp to float
         if(this.health <= 0)
         {
             Die();

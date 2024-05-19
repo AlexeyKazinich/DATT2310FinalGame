@@ -173,7 +173,7 @@ public class LoadInfo : MonoBehaviour
             //displays random abilities that the player does not have
 
             //window 1
-            GameObject.Find("Upgrade1Window").GetComponent<UpgradeWindow>().SetAbility(abilities[10]);
+            GameObject.Find("Upgrade1Window").GetComponent<UpgradeWindow>().SetAbility(abilities[11]);
             GameObject.Find("Upgrade1Image").GetComponent<Image>().sprite = GameObject.Find("Upgrade1Window").GetComponent<UpgradeWindow>().GetAbility().AbilityIcon;
 
             //window 2

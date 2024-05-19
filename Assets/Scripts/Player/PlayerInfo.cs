@@ -12,6 +12,9 @@ public class PlayerInfo : MonoBehaviour
     public static int MaxXP = 100;
     public static int level = 1;
 
+    public static bool LifeSteal = false; //if leech ability
+    private static int LifeStealAmnt = 2; //2hp per hit
+
 
     //base damage for left clicking mobs
     public static int BaseDamage = 5;
@@ -99,5 +102,15 @@ public class PlayerInfo : MonoBehaviour
         CurrentHealth += amount;
         if (CurrentHealth >= MaxHealth)
             CurrentHealth = MaxHealth;
+    }
+
+    //This is called when an enemy is hit. It allows the game to know 
+    // how much to heal the player if he has leech
+    public static void DamageDoneToEnemy(int amount)
+    {
+        if (LifeSteal)
+        {
+            Heal(LifeStealAmnt);
+        }
     }
 }
