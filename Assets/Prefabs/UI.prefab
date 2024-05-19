@@ -2023,7 +2023,20 @@ MonoBehaviour:
   sthirasProtection: {fileID: 11400000, guid: e86a44df61bf5244499b2fb7ec6c30a2, type: 2}
   sovamorcosForm: {fileID: 11400000, guid: cbdf6b84dbccd1049a323ce770fd5ff1, type: 2}
   kemensPresence: {fileID: 11400000, guid: 3e86b55c84410a743a235e5ee5fcd82c, type: 2}
-  abilities: []
+  abilities:
+  - {fileID: 11400000, guid: c74d0a43fb91b184d88cee4df07c6cef, type: 2}
+  - {fileID: 11400000, guid: 5b8fedc1a8ea3654e8b0eff3ff8eb8a6, type: 2}
+  - {fileID: 11400000, guid: 1f0ef8bc8501c9b4d847f23636ba96a9, type: 2}
+  - {fileID: 11400000, guid: 03637e5ddea921e45ae51f5e77bdadb3, type: 2}
+  - {fileID: 11400000, guid: c7053713673e7de4896586f6f89e947a, type: 2}
+  - {fileID: 11400000, guid: fbe01189042548243b311087ea7d8853, type: 2}
+  - {fileID: 11400000, guid: be34f09a141b41349a5444a203678766, type: 2}
+  - {fileID: 11400000, guid: 53f614738e5c6dc4fb6d0daaab50f73d, type: 2}
+  - {fileID: 11400000, guid: 7e9415b9010be64448a336cf7aba6fe9, type: 2}
+  - {fileID: 11400000, guid: 2397f8a4c787fe24db806332789c2aba, type: 2}
+  - {fileID: 11400000, guid: e86a44df61bf5244499b2fb7ec6c30a2, type: 2}
+  - {fileID: 11400000, guid: cbdf6b84dbccd1049a323ce770fd5ff1, type: 2}
+  - {fileID: 11400000, guid: 3e86b55c84410a743a235e5ee5fcd82c, type: 2}
 --- !u!1 &6979044693920256002
 GameObject:
   m_ObjectHideFlags: 0
