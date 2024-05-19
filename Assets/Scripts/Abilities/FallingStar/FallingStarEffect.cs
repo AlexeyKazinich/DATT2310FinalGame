@@ -21,7 +21,7 @@ public class FallingStarEffect : MonoBehaviour
 
     private void Start()
     {
-        gameObject.transform.localScale = new Vector3(10, 10, 1);
+        gameObject.transform.localScale = new Vector3(radius*2, radius*2, 1);
     }
 
     // Update is called once per frame
