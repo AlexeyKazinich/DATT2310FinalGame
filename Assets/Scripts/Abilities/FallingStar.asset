@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: FallingStar
   m_EditorClassIdentifier: 
   AbilityName: Falling Star
-  Cooldown: 10
+  Cooldown: 7
   AbilityIcon: {fileID: 21300000, guid: ead9adb0fb9a3d848b0edb2795ea859e, type: 3}
+  aoePrefab: {fileID: 839379368162902586, guid: 3afd22a01f9021345a38f9da23f32e0d, type: 3}
+  radius: 5
+  duration: 3
