@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SovamorcosForm
   m_EditorClassIdentifier: 
   AbilityName: Sovamorcos Form
-  Cooldown: 0
+  Cooldown: 30
   AbilityIcon: {fileID: 21300000, guid: e7561edc48352d243a3e855747bf682f, type: 3}

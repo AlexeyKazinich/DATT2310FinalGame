@@ -177,7 +177,7 @@ public class LoadInfo : MonoBehaviour
             GameObject.Find("Upgrade1Image").GetComponent<Image>().sprite = GameObject.Find("Upgrade1Window").GetComponent<UpgradeWindow>().GetAbility().AbilityIcon;
 
             //window 2
-            GameObject.Find("Upgrade2Window").GetComponent<UpgradeWindow>().SetAbility(abilities[GetRandomAbilityIndex()]);
+            GameObject.Find("Upgrade2Window").GetComponent<UpgradeWindow>().SetAbility(abilities[1]);
             GameObject.Find("Upgrade2Image").GetComponent<Image>().sprite = GameObject.Find("Upgrade2Window").GetComponent<UpgradeWindow>().GetAbility().AbilityIcon;
 
             //window 3
