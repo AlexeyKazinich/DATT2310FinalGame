@@ -6,8 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Shus Shoes Ability", menuName = "Abilities/ShusShoes")]
 public class ShusShoesAbility : Ability
 {
-    private float speedBoost = 5f;
-    private float boostDuration = 3f;
+    private float speedBoost = 3f;
+    private float boostDuration = 4f;
     protected override void Activate()
     {
         Debug.Log("ShusShoes USED!!!");
