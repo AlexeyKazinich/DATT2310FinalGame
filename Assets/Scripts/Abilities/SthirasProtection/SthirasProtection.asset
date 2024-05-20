@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: SthirasProtection
   m_EditorClassIdentifier: 
   AbilityName: Sthiras Protection
-  Cooldown: 0
+  Cooldown: 30
   AbilityIcon: {fileID: 21300000, guid: 748b4a0cd4640be47bb26adbe551f17c, type: 3}
+  AbilityDescription: NYI
+  invincibilityDuration: 2

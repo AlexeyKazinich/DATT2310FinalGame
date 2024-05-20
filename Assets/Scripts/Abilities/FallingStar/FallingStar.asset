@@ -15,6 +15,7 @@ MonoBehaviour:
   AbilityName: Falling Star
   Cooldown: 7
   AbilityIcon: {fileID: 21300000, guid: ead9adb0fb9a3d848b0edb2795ea859e, type: 3}
+  AbilityDescription: Circle AOE, stays on ground for 3sec, CD 7sec
   aoePrefab: {fileID: 839379368162902586, guid: 3afd22a01f9021345a38f9da23f32e0d, type: 3}
   radius: 5
   duration: 3

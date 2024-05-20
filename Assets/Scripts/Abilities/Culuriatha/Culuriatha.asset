@@ -15,3 +15,4 @@ MonoBehaviour:
   AbilityName: Culuriatha
   Cooldown: 0
   AbilityIcon: {fileID: 21300000, guid: 596c8f988d618454ea13134c47969422, type: 3}
+  AbilityDescription: NYI

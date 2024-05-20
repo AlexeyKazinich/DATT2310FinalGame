@@ -4,11 +4,15 @@ using UnityEngine;
 
 public abstract class Ability : ScriptableObject
 {
-    public string AbilityName; //name
+    public string AbilityName = "NYI"; //name
     public int Cooldown; //how long it should be on cooldown for
     public Sprite AbilityIcon; //icon
 
+    public string AbilityDescription = "NYI";
+
     private float cooldownTimer = 0; // Timer to track cooldown
+
+
     protected abstract void Activate();
 
 

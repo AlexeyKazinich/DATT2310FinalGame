@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: KemensPresence
   m_EditorClassIdentifier: 
   AbilityName: Kemens Presence
-  Cooldown: 0
+  Cooldown: 30
   AbilityIcon: {fileID: 21300000, guid: 590f0642ad3d2c644905f798888bbe3b, type: 3}
+  AbilityDescription: NYI

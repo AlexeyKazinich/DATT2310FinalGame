@@ -38,8 +38,19 @@ public class Door : MonoBehaviour
         //hit door display upgrade UI
         if (player.gameObject.CompareTag("Player"))
         {
+            
             print("Hit door trigger");
+            
+            //show upgrade window
             GameObject.Find("UI").GetComponent<LoadInfo>().EnableUpgradeWindow();
+
+            //stop all enemies for 5sec
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (GameObject enemy in enemies)
+            {
+                enemy.GetComponent<Enemy>().WasStuned(5f);
+            }
+
             tabKeyEnabled = false;
             controlKeysEnabled = false;
         }

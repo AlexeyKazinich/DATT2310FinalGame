@@ -15,3 +15,4 @@ MonoBehaviour:
   AbilityName: Shus Shoes
   Cooldown: 6
   AbilityIcon: {fileID: 21300000, guid: 985cd8aabc6615547b2b53acb90f61c3, type: 3}
+  AbilityDescription: Enables a Temporary Movement Speed Buff. Lasts 4sec, CD 6sec

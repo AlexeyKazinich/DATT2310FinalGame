@@ -173,16 +173,22 @@ public class LoadInfo : MonoBehaviour
             //displays random abilities that the player does not have
 
             //window 1
-            GameObject.Find("Upgrade1Window").GetComponent<UpgradeWindow>().SetAbility(abilities[12]);
-            GameObject.Find("Upgrade1Image").GetComponent<Image>().sprite = GameObject.Find("Upgrade1Window").GetComponent<UpgradeWindow>().GetAbility().AbilityIcon;
+            GameObject.Find("Upgrade1Window").GetComponent<UpgradeWindow>().SetAbility(abilities[GetRandomAbilityIndex()]); //get random ability
+            GameObject.Find("Upgrade1Image").GetComponent<Image>().sprite = GameObject.Find("Upgrade1Window").GetComponent<UpgradeWindow>().GetAbility().AbilityIcon; //get ability icon
+            GameObject.Find("SpellName1").GetComponent<Text>().text = GameObject.Find("Upgrade1Window").GetComponent<UpgradeWindow>().GetAbility().AbilityName; //get ability name
+            GameObject.Find("SpellDescription1").GetComponent<Text>().text = GameObject.Find("Upgrade1Window").GetComponent<UpgradeWindow>().GetAbility().AbilityDescription; //get ability desc
 
             //window 2
-            GameObject.Find("Upgrade2Window").GetComponent<UpgradeWindow>().SetAbility(abilities[1]);
+            GameObject.Find("Upgrade2Window").GetComponent<UpgradeWindow>().SetAbility(abilities[GetRandomAbilityIndex()]);
             GameObject.Find("Upgrade2Image").GetComponent<Image>().sprite = GameObject.Find("Upgrade2Window").GetComponent<UpgradeWindow>().GetAbility().AbilityIcon;
+            GameObject.Find("SpellName2").GetComponent<Text>().text = GameObject.Find("Upgrade2Window").GetComponent<UpgradeWindow>().GetAbility().AbilityName; //get ability name
+            GameObject.Find("SpellDescription2").GetComponent<Text>().text = GameObject.Find("Upgrade2Window").GetComponent<UpgradeWindow>().GetAbility().AbilityDescription; //get ability desc
 
             //window 3
             GameObject.Find("Upgrade3Window").GetComponent<UpgradeWindow>().SetAbility(abilities[GetRandomAbilityIndex()]);
             GameObject.Find("Upgrade3Image").GetComponent<Image>().sprite = GameObject.Find("Upgrade3Window").GetComponent<UpgradeWindow>().GetAbility().AbilityIcon;
+            GameObject.Find("SpellName3").GetComponent<Text>().text = GameObject.Find("Upgrade3Window").GetComponent<UpgradeWindow>().GetAbility().AbilityName; //get ability name
+            GameObject.Find("SpellDescription3").GetComponent<Text>().text = GameObject.Find("Upgrade3Window").GetComponent<UpgradeWindow>().GetAbility().AbilityDescription; //get ability desc
         }
     }
 

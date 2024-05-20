@@ -15,3 +15,4 @@ MonoBehaviour:
   AbilityName: Ymirs Wrath
   Cooldown: 0
   AbilityIcon: {fileID: 21300000, guid: b12664652a945694ba064381ea1fe865, type: 3}
+  AbilityDescription: NYI
