@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: MomokesBlessing
   m_EditorClassIdentifier: 
   AbilityName: Momokes Blessing
-  Cooldown: 0
+  Cooldown: 15
   AbilityIcon: {fileID: 21300000, guid: ac04dc5656ee62f4fad47cba91284d84, type: 3}
-  AbilityDescription: NYI
+  AbilityDescription: Gives player shield reducing damage taken by 75% for 5sec.
+    CD 15sec
+  BuffDuration: 5
+  DmgReduction: 0.75
