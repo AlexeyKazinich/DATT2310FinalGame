@@ -8,6 +8,7 @@ public class FallingStarEffect : MonoBehaviour
     public float tickRate = 1f;
     private float radius;
     private string enemyTag = "Enemy";
+    private string bossTag = "Boss";
 
     private float nextTickTime;
 
@@ -46,6 +47,14 @@ public class FallingStarEffect : MonoBehaviour
                 if(enemy != null)
                 {
                     enemy.TakeDamage(damage);
+                }
+            }
+            else if (hitCollider.CompareTag(bossTag))
+            {
+                Boss boss = hitCollider.GetComponent<Boss>();
+                if(boss != null)
+                {
+                    boss.TakeDamage(damage);
                 }
             }
         }

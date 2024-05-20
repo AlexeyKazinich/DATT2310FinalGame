@@ -11,6 +11,7 @@ public class KahanasRadianceAbility : Ability
     {
         Debug.Log(name + " USED!!!");
 
+        //hit enemy
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach(GameObject enemy in enemies)
         {
@@ -20,5 +21,9 @@ public class KahanasRadianceAbility : Ability
                 enemyScript.TakeDamage(damageAmount);
             }
         }
+
+
+        //hit boss
+        GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>().TakeDamage(damageAmount);
     }
 }
