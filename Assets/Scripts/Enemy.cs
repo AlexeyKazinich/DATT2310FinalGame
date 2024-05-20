@@ -25,6 +25,9 @@ public class Enemy : MonoBehaviour
     private int animSpeed = 3;
     private int animCounter = 0;
 
+    private bool stunned = false; //cant hit or move
+    private bool immobolized = false; //cant move
+
     private void Awake()
     {
         healthBar = GetComponentInChildren<FloatingHealthBar>();
@@ -67,11 +70,6 @@ public class Enemy : MonoBehaviour
 
             moveDirection = direction;
         }
-
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            TakeDamage(2);
-        }
         
 
         
@@ -106,9 +104,13 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (target)
+        if (target && !stunned && !immobolized)
         {
             rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
+        }
+        else
+        {
+            rb.velocity = new Vector2(0, 0);
         }
 
         AnimateSprite();
@@ -117,7 +119,7 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Player")
+        if (collision.gameObject.name == "Player" && !stunned)
         {
             //start after 1sec, and hit every 2sec
             InvokeRepeating(nameof(HitPlayer), 0f, 1f);
@@ -133,5 +135,33 @@ public class Enemy : MonoBehaviour
     private void HitPlayer()
     {
         GameObject.Find("Player").GetComponent<Player>().TakeDamage(damage);
+    }
+
+
+
+    //cant move or attack
+    public void WasStuned(float duration)
+    {
+        stunned = true;
+        CoroutineRunner.Instance.RunCoroutine(RemoveStunAfterDuration(duration));
+    }
+
+    //stops enemy from moving but can attack
+    public void WasImmobolized(float duration)
+    {
+        immobolized = true;
+        CoroutineRunner.Instance.RunCoroutine(RemoveImmobolizeAfterDuration(duration));
+    }
+
+    private IEnumerator RemoveStunAfterDuration(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        stunned = false;
+    }
+
+    private IEnumerator RemoveImmobolizeAfterDuration(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        immobolized = false;
     }
 }
