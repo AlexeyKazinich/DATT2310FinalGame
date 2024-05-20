@@ -15,6 +15,8 @@ public class PlayerInfo : MonoBehaviour
     public static bool LifeSteal = false; //if leech ability
     private static int LifeStealAmnt = 2; //2hp per hit
 
+    public static float DmgReduction = 0f;
+
 
     //base damage for left clicking mobs
     public static int BaseDamage = 5;

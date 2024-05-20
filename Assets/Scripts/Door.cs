@@ -61,16 +61,32 @@ public class Door : MonoBehaviour
 
     public void SwitchScene()
     {
-        
-        print("switch scene triggered");
-        int nextScene = currentScene;
-        
-        while (nextScene == currentScene)
+        //scene 0: MainMenu
+        //scene 1-3 Rooms
+        //scene 4: Boss
+        //scene 5: endScreen
+        if(currentScene == 4)
         {
-            nextScene = Random.Range(1, numberOfScene-2);
+            //switch to endscreen
+            SceneManager.LoadScene(5);
         }
+        else if (PlayerInfo.levelsGoneThrough == 6)
+        {
+            //switch to boss room
+            SceneManager.LoadScene(4);
+        }
+        else
+        {
+            print("switch scene triggered");
+            int nextScene = currentScene;
 
-        PlayerInfo.levelsGoneThrough += 1;
-        SceneManager.LoadScene(nextScene);
+            while (nextScene == currentScene)
+            {
+                nextScene = Random.Range(1, numberOfScene - 2);
+            }
+
+            PlayerInfo.levelsGoneThrough += 1;
+            SceneManager.LoadScene(nextScene);
+        }
     }
 }

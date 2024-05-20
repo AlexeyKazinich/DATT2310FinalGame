@@ -215,22 +215,19 @@ public class LoadInfo : MonoBehaviour
 
     public void OnButtonClick(int type)
     {
+        switch (type)
+        {
+            case 1:
+            case 2:
+            case 3:
+                AddAbility(type);
+                break;
+            case 4:
+                print("skip button pressed");
+                break;
+        }
 
-        if (type == 1)
-        {
-            AddAbility(type);
-            print("Button 1 clicked");
-        }
-        if (type == 2)
-        {
-            AddAbility(type);
-            print("Button 2 clicked");
-        }
-        if (type == 3)
-        {
-            AddAbility(type);
-            print("Button 3 clicked");
-        }
+
 
         GameObject.Find("Door").GetComponent<Door>().SwitchScene();
     }

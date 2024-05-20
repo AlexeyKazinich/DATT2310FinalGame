@@ -29,6 +29,11 @@ public class Player : MonoBehaviour
     public bool invincible = false;
 
 
+    //prevent spam
+    private bool canShoot = true;
+    private readonly float shootDelay = 0.25f; //0.25sec
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,11 +55,20 @@ public class Player : MonoBehaviour
             playerInfoPanel.SetActive(false);
         }
 
-        //check if player is trying to shoot
+        //check if player is trying to shoot left click
         if (Input.GetButtonDown("Fire1"))
         {
-            Instantiate(ProjectilePrefab,LaunchOffset.position,transform.rotation);
+            if (canShoot)
+            {
+                Instantiate(ProjectilePrefab, LaunchOffset.position, transform.rotation);
+                canShoot = false;
+                CoroutineRunner.Instance.RunCoroutine(ResetCanShootAfterDelay(shootDelay));
+
+
+            }
         }
+
+        
 
         //check if player trying to use abilities
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -86,6 +100,13 @@ public class Player : MonoBehaviour
         }
 
 
+    }
+
+    //reset shoot var after delay
+    private IEnumerator ResetCanShootAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        canShoot = true;
     }
 
     public void AssignAbility(int index, Ability ability)
@@ -214,7 +235,7 @@ public class Player : MonoBehaviour
         //currently using an INT, will need to be updated to a float probably
         if (!invincible)
         {
-            PlayerInfo.CurrentHealth -= (int)damageAmount;
+            PlayerInfo.CurrentHealth -= (int)((damageAmount) * (1.0f - PlayerInfo.DmgReduction));
             if (PlayerInfo.CurrentHealth < 0)
                 Die();
         }
