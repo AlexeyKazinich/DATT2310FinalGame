@@ -36,6 +36,10 @@ public class PlayerInfo : MonoBehaviour
     //once it hits 6, next level is boss fight
     public static int levelsGoneThrough = 1;
 
+    //this is for the end screen to show different things
+    //Died or Won
+    public static string gameEndReason = "";
+
 
     //fix this later
     public static void ResetToDefault()

@@ -24,6 +24,11 @@ public class Boss : MonoBehaviour
 
     private Transform target;
 
+
+    private bool phase1Activated = false; //triggers at 90%
+    private bool phase2Activated = false; //triggers at 60%
+    private bool phase3Activated = false; //triggers at 30%
+
     private void Awake()
     {
         healthBar = GameObject.Find("BossHealthBar").GetComponent<FloatingHealthBar>();
@@ -79,7 +84,28 @@ public class Boss : MonoBehaviour
 
     private void FixedUpdate()
     {
-        AnimateSprite(); 
+        AnimateSprite();
+
+        //phase check
+        if((health / maxHealth) <= 0.3 && !phase3Activated)
+        {
+            //30%
+            phase3Activated = true;
+            GameObject.Find("SpawnArea").GetComponent<EnemySpawner>().SpawnEnemies(15);
+        }
+        else if((health / maxHealth) <= 0.6 && !phase2Activated)
+        {
+            //60%
+            phase2Activated= true;
+            GameObject.Find("SpawnArea").GetComponent<EnemySpawner>().SpawnEnemies(10);
+        }
+        else if((health / maxHealth) <= 0.9 && !phase1Activated)
+        {
+            //30%
+            phase1Activated= true;
+            GameObject.Find("SpawnArea").GetComponent<EnemySpawner>().SpawnEnemies(5);
+        }
+        
     }
 
     void Start()

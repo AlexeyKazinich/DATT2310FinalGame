@@ -82,7 +82,7 @@ public class Door : MonoBehaviour
 
             while (nextScene == currentScene)
             {
-                nextScene = Random.Range(1, numberOfScene - 2);
+                nextScene = Random.Range(1, 4); //1-3
             }
 
             PlayerInfo.levelsGoneThrough += 1;
