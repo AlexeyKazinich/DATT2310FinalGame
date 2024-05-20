@@ -55,6 +55,11 @@ public class ProjectileBehaviour : MonoBehaviour
             collision.gameObject.GetComponent<Enemy>().TakeDamage(PlayerInfo.BaseDamage);
             Destroy(gameObject);
         }
+        else if(collision.gameObject.tag == "Boss")
+        {
+            collision.gameObject.GetComponent<Boss>().TakeDamage(PlayerInfo.BaseDamage);
+            Destroy(gameObject);
+        }
         else
         {
             Destroy(gameObject);
