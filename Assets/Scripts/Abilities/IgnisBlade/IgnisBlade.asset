@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f78bd588f58eea0438062e60f00e6441, type: 3}
   m_Name: IgnisBlade
   m_EditorClassIdentifier: 
-  AbilityName: NYI
-  Cooldown: 0
+  AbilityName: Ignis Blade
+  Cooldown: 10
   AbilityIcon: {fileID: 21300000, guid: 1785bb4e60d1e4b46acc3d57a42b5aab, type: 3}
-  AbilityDescription: NYI
+  AbilityDescription: Burn all enemies for 5sec for 2dmg CD 7sec
+  effect: {fileID: 3507954330592359703, guid: 6f3c6359d6043be479a54fb1236c3644, type: 3}
