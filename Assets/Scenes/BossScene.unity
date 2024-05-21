@@ -1768,6 +1768,7 @@ MonoBehaviour:
   - {fileID: -1734311645, guid: e17612fa413f8254e8df41f4b17f7716, type: 3}
   - {fileID: 510491460, guid: e17612fa413f8254e8df41f4b17f7716, type: 3}
   - {fileID: 959632614, guid: e17612fa413f8254e8df41f4b17f7716, type: 3}
+  ability1: {fileID: 11400000, guid: c0ea8e1a7b26186449a83daeabc870c0, type: 2}
 --- !u!1001 &810270397
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3277,7 +3278,6 @@ MonoBehaviour:
   enemyPrefab: {fileID: 7864194678860580606, guid: d3714d56391888d47bce8aee1cf89aeb, type: 3}
   spawnAreaMin: {x: -9, y: -4}
   spawnAreaMax: {x: 9, y: 4}
-  numberOfEnemies: 5
 --- !u!212 &1783788243
 SpriteRenderer:
   m_ObjectHideFlags: 0

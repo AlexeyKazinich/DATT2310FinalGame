@@ -25,9 +25,5 @@ public class EnemySpawner : MonoBehaviour
         Instantiate(enemyPrefab, randomPosition,Quaternion.identity);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

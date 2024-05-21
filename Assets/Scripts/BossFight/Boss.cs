@@ -24,10 +24,14 @@ public class Boss : MonoBehaviour
 
     private Transform target;
 
+    public BossAOEAbility ability1;
+
 
     private bool phase1Activated = false; //triggers at 90%
     private bool phase2Activated = false; //triggers at 60%
     private bool phase3Activated = false; //triggers at 30%
+
+    private float abilityInterval = 5f;
 
     private void Awake()
     {
@@ -92,18 +96,29 @@ public class Boss : MonoBehaviour
             //30%
             phase3Activated = true;
             GameObject.Find("SpawnArea").GetComponent<EnemySpawner>().SpawnEnemies(15);
+
+            CancelInvoke("UseAbility");
+            abilityInterval = 1f;
+            InvokeRepeating("UseAbility", 2f, abilityInterval);
         }
         else if((health / maxHealth) <= 0.6 && !phase2Activated)
         {
             //60%
             phase2Activated= true;
             GameObject.Find("SpawnArea").GetComponent<EnemySpawner>().SpawnEnemies(10);
+
+            CancelInvoke("UseAbility");
+            abilityInterval = 3f;
+            InvokeRepeating("UseAbility", 2f, abilityInterval);
         }
         else if((health / maxHealth) <= 0.9 && !phase1Activated)
         {
-            //30%
+            //90%
             phase1Activated= true;
             GameObject.Find("SpawnArea").GetComponent<EnemySpawner>().SpawnEnemies(5);
+
+            
+
         }
         
     }
@@ -111,6 +126,15 @@ public class Boss : MonoBehaviour
     void Start()
     {
         target = GameObject.Find("Player").GetComponent<Transform>();
+        InvokeRepeating("UseAbility", 2f, abilityInterval);
+    }
+
+    private void UseAbility()
+    {
+        if (ability1 != null)
+        {
+            ability1.Activate();
+        }
     }
 
     // Update is called once per frame
