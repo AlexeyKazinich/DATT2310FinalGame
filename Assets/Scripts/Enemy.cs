@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        WasStuned(2f); //stun when spawns
+        WasStuned(1f); //stun when spawns
         target = GameObject.Find("Player").transform;
     }
 
@@ -122,7 +122,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.name == "Player" && !stunned)
         {
-            //start after 1sec, and hit every 2sec
+            //start after 0sec, and hit every 1sec
             InvokeRepeating(nameof(HitPlayer), 0f, 1f);
         }
 
