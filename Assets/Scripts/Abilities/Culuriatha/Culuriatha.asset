@@ -16,4 +16,5 @@ MonoBehaviour:
   Cooldown: 10
   AbilityIcon: {fileID: 21300000, guid: 596c8f988d618454ea13134c47969422, type: 3}
   AbilityDescription: Slows all enemies by 70% for 3sec. CD 10sec
+  soundEffect: {fileID: 8300000, guid: 4e1aa87500fa4924ea54941a99c95a41, type: 3}
   effect: {fileID: 7785816631515255696, guid: daf364eeb7950fa448f82c60daa4cdb2, type: 3}

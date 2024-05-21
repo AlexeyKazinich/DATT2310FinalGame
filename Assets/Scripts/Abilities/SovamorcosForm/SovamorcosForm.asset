@@ -16,3 +16,4 @@ MonoBehaviour:
   Cooldown: 30
   AbilityIcon: {fileID: 21300000, guid: e7561edc48352d243a3e855747bf682f, type: 3}
   AbilityDescription: Leech HP for 5sec. 30sec CD
+  soundEffect: {fileID: 8300000, guid: 8de6bf57238a7cf4d87d38f47850446f, type: 3}

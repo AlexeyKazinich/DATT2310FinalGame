@@ -51,4 +51,14 @@ public class MusicManager : MonoBehaviour
         audioSource.Play();
         Destroy(soundObject,projectileSound.length);
     }
+
+    public void AbilitySound(AudioClip soundClip)
+    {
+        GameObject soundObject = new GameObject("AbilitySound");
+        AudioSource audioSource = soundObject.AddComponent<AudioSource>();
+        audioSource.clip = soundClip;
+        audioSource.volume = 0.5f;
+        audioSource.Play();
+        Destroy(soundObject,soundClip.length);
+    }
 }

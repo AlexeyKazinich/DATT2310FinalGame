@@ -17,5 +17,6 @@ MonoBehaviour:
   AbilityIcon: {fileID: 21300000, guid: 18adc4bd26b6830449b0895db1161962, type: 3}
   AbilityDescription: Shield around player that stuns and hurts enemies. Lasts 5sec.
     CD 10sec
+  soundEffect: {fileID: 8300000, guid: 46b3cfcc8f00c08429f923a057f330fd, type: 3}
   raijinPrefab: {fileID: 7891801214618265182, guid: 6fd37b98a7aba8a4abb747ecbb090ad3, type: 3}
   radius: 2

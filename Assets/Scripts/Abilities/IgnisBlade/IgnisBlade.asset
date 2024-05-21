@@ -16,4 +16,5 @@ MonoBehaviour:
   Cooldown: 10
   AbilityIcon: {fileID: 21300000, guid: 1785bb4e60d1e4b46acc3d57a42b5aab, type: 3}
   AbilityDescription: Burn all enemies for 5sec for 2dmg CD 7sec
+  soundEffect: {fileID: 8300000, guid: 5bf8e3a524cafd247bb2fe3e76bc9a59, type: 3}
   effect: {fileID: 3507954330592359703, guid: 6f3c6359d6043be479a54fb1236c3644, type: 3}

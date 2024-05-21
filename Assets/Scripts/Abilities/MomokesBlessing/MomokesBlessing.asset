@@ -17,5 +17,6 @@ MonoBehaviour:
   AbilityIcon: {fileID: 21300000, guid: ac04dc5656ee62f4fad47cba91284d84, type: 3}
   AbilityDescription: Gives player shield reducing damage taken by 75% for 5sec.
     CD 15sec
+  soundEffect: {fileID: 8300000, guid: 9da5fc660ff72b8439cd60289108d8ed, type: 3}
   BuffDuration: 5
   DmgReduction: 0.75
