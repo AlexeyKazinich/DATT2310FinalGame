@@ -3955,6 +3955,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 444837410645308138}
     m_Modifications:
+    - target: {fileID: 1210781453966892328, guid: 58b62279d35455644af0b96a15017cf7, type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1210781453966892328, guid: 58b62279d35455644af0b96a15017cf7, type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1210781453966892328, guid: 58b62279d35455644af0b96a15017cf7, type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 0.48235294
+      objectReference: {fileID: 0}
     - target: {fileID: 1525352327668211024, guid: 58b62279d35455644af0b96a15017cf7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4038,6 +4050,18 @@ PrefabInstance:
     - target: {fileID: 2651394009253697142, guid: 58b62279d35455644af0b96a15017cf7, type: 3}
       propertyPath: m_LocalScale.x
       value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461894023465071080, guid: 58b62279d35455644af0b96a15017cf7, type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461894023465071080, guid: 58b62279d35455644af0b96a15017cf7, type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461894023465071080, guid: 58b62279d35455644af0b96a15017cf7, type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 0.48235294
       objectReference: {fileID: 0}
     - target: {fileID: 5347630627596024453, guid: 58b62279d35455644af0b96a15017cf7, type: 3}
       propertyPath: m_Name
