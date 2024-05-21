@@ -13,7 +13,7 @@ public class IgnisBladeAbility : Ability
         Debug.Log("Ignis Blade USED!!!");
 
         //tick all enemies for 5sec 2dmg per sec CD 10sec
-        effect.GetComponent<IgnisBladeEffect>().startEffect(DamageAmount, Duration);
+        effect.GetComponent<IgnisBladeEffect>().StartEffect(DamageAmount, Duration);
     }
 
 

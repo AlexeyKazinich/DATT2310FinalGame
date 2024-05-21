@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Culuriatha
   m_EditorClassIdentifier: 
   AbilityName: Culuriatha
-  Cooldown: 0
+  Cooldown: 10
   AbilityIcon: {fileID: 21300000, guid: 596c8f988d618454ea13134c47969422, type: 3}
-  AbilityDescription: NYI
+  AbilityDescription: Slows all enemies by 70% for 3sec. CD 10sec
+  effect: {fileID: 7785816631515255696, guid: daf364eeb7950fa448f82c60daa4cdb2, type: 3}

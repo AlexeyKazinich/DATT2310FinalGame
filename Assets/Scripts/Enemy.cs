@@ -165,4 +165,9 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(duration);
         immobolized = false;
     }
+
+    public void SetMoveSpeed(float moveSpeed)
+    {
+        this.moveSpeed = moveSpeed;
+    }
 }

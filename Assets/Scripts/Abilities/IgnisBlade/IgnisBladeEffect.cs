@@ -7,7 +7,7 @@ public class IgnisBladeEffect : MonoBehaviour
 {
     private float DamageAmount;
     private float Duration;
-   public void startEffect(float DamageAmount, float Duration)
+   public void StartEffect(float DamageAmount, float Duration)
     {
         this.DamageAmount = DamageAmount;
         this.Duration = Duration;
