@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
         Application.Quit();
 
         // for debugging purposes only, delete when building
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false;
     }
     public void Pause(){
         Time.timeScale = 0f;
