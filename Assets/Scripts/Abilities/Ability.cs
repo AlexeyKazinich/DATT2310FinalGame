@@ -10,7 +10,7 @@ public abstract class Ability : ScriptableObject
 
     public string AbilityDescription = "NYI";
 
-    public AudioClip soundEffect; //kahanas and Kemen no sound and Sovamor and Sthiras
+    public AudioClip soundEffect;
 
     private float cooldownTimer = 0; // Timer to track cooldown
 

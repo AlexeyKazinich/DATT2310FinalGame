@@ -8,6 +8,7 @@ public class StartGame : MonoBehaviour
     public void GoToGame()
     {
         //for now it goes to the first scene
+        PlayerInfo.ResetToDefault();
         SceneManager.LoadScene("Scene 1");
     }
 

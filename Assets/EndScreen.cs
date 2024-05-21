@@ -27,11 +27,13 @@ public class EndScreen : MonoBehaviour
 
     public void OnClickMainMenu()
     {
+        PlayerInfo.ResetToDefault();
         SceneManager.LoadScene(0);
     }
 
     public void OnClickRestart()
     {
+        PlayerInfo.ResetToDefault();
         SceneManager.LoadScene(1);
     }
 }

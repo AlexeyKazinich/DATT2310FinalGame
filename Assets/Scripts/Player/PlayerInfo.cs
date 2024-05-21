@@ -50,6 +50,10 @@ public class PlayerInfo : MonoBehaviour
         MaxXP = 100;
         level = 1;
 
+        LifeSteal = false;
+        LifeStealAmnt = 2;
+        DmgReduction = 0f;
+
         BaseDamage = 5;
         PlayerSpeed = 4f;
 
@@ -62,6 +66,8 @@ public class PlayerInfo : MonoBehaviour
         ability3 = null;
 
         levelsGoneThrough = 1;
+
+        victory = false;
 
 
     }
