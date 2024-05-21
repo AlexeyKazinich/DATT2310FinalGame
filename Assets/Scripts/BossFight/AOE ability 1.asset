@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: AOE ability 1
   m_EditorClassIdentifier: 
   aoePrefab: {fileID: 1605599510073197807, guid: c17904d2455eab94db15c12455087136, type: 3}
-  radius: 5
-  duration: 3
+  radius: 2
+  duration: 2
