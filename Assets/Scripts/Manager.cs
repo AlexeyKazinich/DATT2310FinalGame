@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour
 {
@@ -64,6 +65,7 @@ public class Manager : MonoBehaviour
 
     }
     public void GoToMainMenu(){
-        Debug.Log("Main menu button is clicked!");
+        Time.timeScale = 1f; //reset this or its bugged
+        SceneManager.LoadScene(0);
     }
 }

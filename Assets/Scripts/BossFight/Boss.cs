@@ -55,6 +55,7 @@ public class Boss : MonoBehaviour
     private void Die()
     {
         //kill boss change scene
+        PlayerInfo.victory = true;
         Destroy(gameObject);
         SceneManager.LoadScene(5);
     }

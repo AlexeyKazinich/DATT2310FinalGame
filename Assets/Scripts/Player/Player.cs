@@ -246,6 +246,7 @@ public class Player : MonoBehaviour
     private void Die()
     {
         //player has died
+        PlayerInfo.victory = false;
         SceneManager.LoadScene(5); //end scene
     }
 

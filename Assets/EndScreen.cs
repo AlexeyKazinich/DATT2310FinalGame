@@ -5,14 +5,30 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class EndScreen : MonoBehaviour
 {
+
     private void Start()
     {
-        GameObject.Find("RoundsWonText").GetComponent<Text>().text = "Levels Gone Through: " + PlayerInfo.levelsGoneThrough;
+        if (PlayerInfo.victory)
+        {
+            GameObject.Find("WinUI").SetActive(true);
+            GameObject.Find("LoseUI").SetActive(false);
+        }
+        else
+        {
+            GameObject.Find("WinUI").SetActive(false);
+            GameObject.Find("LoseUI").SetActive(true);
+        }
     }
-    public void OnClick()
+    
+
+
+    public void OnClickMainMenu()
     {
-        //reset playerinfo stuff and move to main menu
-        PlayerInfo.ResetToDefault();
         SceneManager.LoadScene(0);
+    }
+
+    public void OnClickRestart()
+    {
+        SceneManager.LoadScene(1);
     }
 }

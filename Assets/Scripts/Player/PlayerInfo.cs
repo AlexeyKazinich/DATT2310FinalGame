@@ -38,7 +38,7 @@ public class PlayerInfo : MonoBehaviour
 
     //this is for the end screen to show different things
     //Died or Won
-    public static string gameEndReason = "";
+    public static bool victory = false;
 
 
     //fix this later
