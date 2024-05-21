@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     public Slider backgroundMusicSlider;
     public Slider soundEffectsSlider;
     public Toggle bgMusicToggle;
-    public Toggle soundFXToggle;
+    public Toggle windowToggle;
     //public Button showPrompt;
     public string[] enteredScenes;
     public int sceneIndex = 0;
@@ -43,19 +43,24 @@ public class GameManager : MonoBehaviour
 
         backgroundMusic.Play();
 
-
         backgroundMusicSlider.value = backgroundMusic.volume;
         //soundEffectsSlider.value = 
         bgMusicToggle.isOn = !backgroundMusic.mute;
 
         backgroundMusicSlider.onValueChanged.AddListener(OnVolumeChanged);
         bgMusicToggle.onValueChanged.AddListener(OnBGMusicToggle);
+
+        windowToggle.isOn = Screen.fullScreenMode == FullScreenMode.FullScreenWindow;
+        windowToggle.onValueChanged.AddListener(OnScreenModeToggle);
     }
     public void OnVolumeChanged(float value){
         backgroundMusic.volume = value;
     }
     public void OnBGMusicToggle(bool isOn){
         backgroundMusic.mute = !isOn;
+    }
+    public void OnScreenModeToggle(bool isFullscreen){
+        Screen.fullScreenMode = isFullscreen ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
     }
     // Update is called once per frame
     void Update()
