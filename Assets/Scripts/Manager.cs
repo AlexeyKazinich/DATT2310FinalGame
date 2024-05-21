@@ -8,6 +8,7 @@ public class Manager : MonoBehaviour
     public GameObject pause;
     public GameObject resume;
     public GameObject mainMenu;
+    
     public GameObject background;
     public GameObject pauseText;
     public Canvas pauseCanvas;

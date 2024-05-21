@@ -8,22 +8,26 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public Player player;
-    public Text scoreText;
     public GameObject startButton;
-    public GameObject gameOver;
     public Canvas showCredits;
     public Canvas showTeam;
+    public Canvas showSettings;
     public GameObject hexaAstrum;
     public GameObject credits;
     public GameObject settings;
     public GameObject exitButton;
-    public GameObject pause;
-    public GameObject resume;
-    public GameObject showPrompt;
-    public Button yes;
-    public Button no;
+    public AudioSource backgroundMusic;
+    public AudioSource inGameSound;
+    public AudioSource startSound;
+    public AudioSource creditSound;
+    public AudioSource settingSound;
+    public AudioSource teamSound;
+
+    public Slider backgroundMusicSlider;
+    public Slider soundEffectsSlider;
+    public Toggle bgMusicToggle;
+    public Toggle soundFXToggle;
     //public Button showPrompt;
-    private int score;
     public string[] enteredScenes;
     public int sceneIndex = 0;
     private void Awake(){
@@ -32,22 +36,43 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // hide these objects on start
         showCredits.gameObject.SetActive(false);
         showTeam.gameObject.SetActive(false);
+        showSettings.gameObject.SetActive(false);
 
+        backgroundMusic.Play();
+
+
+        backgroundMusicSlider.value = backgroundMusic.volume;
+        //soundEffectsSlider.value = 
+        bgMusicToggle.isOn = !backgroundMusic.mute;
+
+        backgroundMusicSlider.onValueChanged.AddListener(OnVolumeChanged);
+        bgMusicToggle.onValueChanged.AddListener(OnBGMusicToggle);
     }
-
+    public void OnVolumeChanged(float value){
+        backgroundMusic.volume = value;
+    }
+    public void OnBGMusicToggle(bool isOn){
+        backgroundMusic.mute = !isOn;
+    }
     // Update is called once per frame
     void Update()
     {
     }
 
     public void Play(){
+        startSound.Play();
         Debug.Log("Play!");
-        score = 0;
+
+        backgroundMusic.Stop();
         //scoreText.text = score.ToString();
 
         SceneManager.LoadScene(1);
+
+        inGameSound.Play();
+        
         //enteredScenes[0] = "Scene 1";
     }
     public void Exit(){
@@ -57,27 +82,26 @@ public class GameManager : MonoBehaviour
         // for debugging purposes only, delete when building
         //UnityEditor.EditorApplication.isPlaying = false;
     }
-    public void Pause(){
-        Time.timeScale = 0f;
-        pause.SetActive(false);
-    }
-    public void Resume(){
-        Time.timeScale = 1f;
-        pause.SetActive(true);
-    }
     public void ShowCredits(){
+        creditSound.Play();
         showCredits.gameObject.SetActive(true);
-        
-
     }
     public void HideCredits(){
         showCredits.gameObject.SetActive(false);
-        
     }
     public void ShowCreators(){
+        teamSound.Play();
         showTeam.gameObject.SetActive(true);
     }
     public void HideCreators(){
         showTeam.gameObject.SetActive(false);
+    }
+    public void ShowSettings(){
+        Debug.Log("Settings clicked!");
+        showSettings.gameObject.SetActive(true);
+    }
+    public void HideSettings(){
+        Debug.Log("Main menu clicked!");
+        showSettings.gameObject.SetActive(false);
     }
 }
