@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -58,23 +59,10 @@ public class GameManager : MonoBehaviour
     }
     public void Pause(){
         Time.timeScale = 0f;
-        player.enabled = false;
-
-        resume.SetActive(true);
-        exitButton.SetActive(true);
-        settings.SetActive(true);
-        credits.SetActive(true);
-        //showCreators.SetActive(true);
         pause.SetActive(false);
     }
     public void Resume(){
         Time.timeScale = 1f;
-        player.enabled = true;
-        resume.SetActive(false);
-        exitButton.SetActive(false);
-        settings.SetActive(false);
-        credits.SetActive(false);
-        //showCreators.SetActive(false);
         pause.SetActive(true);
     }
     public void ShowCredits(){
