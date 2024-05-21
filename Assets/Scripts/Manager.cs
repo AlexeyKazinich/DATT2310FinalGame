@@ -67,6 +67,7 @@ public class Manager : MonoBehaviour
     }
     public void GoToMainMenu(){
         Time.timeScale = 1f; //reset this or its bugged
+        PlayerInfo.ResetToDefault(); //resets player 
         SceneManager.LoadScene(0);
     }
 }

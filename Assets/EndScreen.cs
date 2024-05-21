@@ -8,6 +8,7 @@ public class EndScreen : MonoBehaviour
 
     private void Start()
     {
+        MusicManager.Instance.StopAndDestroy();
 
         if (PlayerInfo.victory)
         {

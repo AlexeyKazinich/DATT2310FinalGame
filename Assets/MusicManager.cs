@@ -42,6 +42,16 @@ public class MusicManager : MonoBehaviour
         backgroundMusicSource.Play();
     }
 
+    public void StopAndDestroy()
+    {
+        if (backgroundMusicSource != null)
+        {
+            backgroundMusicSource.Stop();
+        }
+        Destroy(this.gameObject);
+        instance = null;
+    }
+
     public void PlayProjectileSound()
     {
         GameObject soundObject = new GameObject("ProjectileSound");
