@@ -31,7 +31,14 @@ public class ProjectileBehaviour : MonoBehaviour
         Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), GameObject.Find("Player").GetComponent<Collider2D>());
 
         Vector3 direction = mousePos - transform.position;
+        Vector3 rotation = transform.position - mousePos;
+
         rb.velocity = new Vector2(direction.x, direction.y).normalized * Speed;
+
+        float rot = Mathf.Atan2(rotation.y, rotation.x) *Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, rot+90);
+
+
 
         // added
         Destroy(gameObject, lifeSpan);
