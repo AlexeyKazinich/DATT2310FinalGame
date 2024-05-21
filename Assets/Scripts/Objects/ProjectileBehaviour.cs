@@ -39,6 +39,7 @@ public class ProjectileBehaviour : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, rot+90);
 
 
+        MusicManager.Instance.PlayProjectileSound();
 
         // added
         Destroy(gameObject, lifeSpan);
