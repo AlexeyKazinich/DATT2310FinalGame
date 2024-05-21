@@ -69,5 +69,6 @@ public class Manager : MonoBehaviour
         Time.timeScale = 1f; //reset this or its bugged
         PlayerInfo.ResetToDefault(); //resets player 
         SceneManager.LoadScene(0);
+        //
     }
 }
