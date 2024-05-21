@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
     public GameObject startButton;
     public GameObject gameOver;
-    public GameObject showCreators;
+    public Canvas showCredits;
+    public Canvas showTeam;
+    public GameObject hexaAstrum;
     public GameObject credits;
     public GameObject settings;
     public GameObject exitButton;
@@ -29,7 +31,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        showCredits.gameObject.SetActive(false);
+        showTeam.gameObject.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -46,20 +50,11 @@ public class GameManager : MonoBehaviour
         //enteredScenes[0] = "Scene 1";
     }
     public void Exit(){
-        settings.SetActive(false);
-        exitButton.SetActive(false);
-        
-        
-        
+        Debug.Log("Exit button has been clicked!");
         Application.Quit();
-    }
-    public void Yes(){
-        Application.Quit();
-    }
-    public void No(){
-        settings.SetActive(true);
-        exitButton.SetActive(true);
 
+        // for debugging purposes only, delete when building
+        UnityEditor.EditorApplication.isPlaying = false;
     }
     public void Pause(){
         Time.timeScale = 0f;
@@ -69,7 +64,7 @@ public class GameManager : MonoBehaviour
         exitButton.SetActive(true);
         settings.SetActive(true);
         credits.SetActive(true);
-        showCreators.SetActive(true);
+        //showCreators.SetActive(true);
         pause.SetActive(false);
     }
     public void Resume(){
@@ -79,13 +74,22 @@ public class GameManager : MonoBehaviour
         exitButton.SetActive(false);
         settings.SetActive(false);
         credits.SetActive(false);
-        showCreators.SetActive(false);
+        //showCreators.SetActive(false);
         pause.SetActive(true);
     }
     public void ShowCredits(){
+        showCredits.gameObject.SetActive(true);
+        
 
     }
+    public void HideCredits(){
+        showCredits.gameObject.SetActive(false);
+        
+    }
     public void ShowCreators(){
-
+        showTeam.gameObject.SetActive(true);
+    }
+    public void HideCreators(){
+        showTeam.gameObject.SetActive(false);
     }
 }
