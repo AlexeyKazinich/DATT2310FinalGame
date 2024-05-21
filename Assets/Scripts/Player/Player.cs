@@ -55,8 +55,8 @@ public class Player : MonoBehaviour
             playerInfoPanel.SetActive(false);
         }
 
-        //check if player is trying to shoot left click
-        if (Input.GetButtonDown("Fire1"))
+        //check if player is trying to shoot right click
+        if (Input.GetButtonDown("Fire2")) 
         {
             if (canShoot)
             {
