@@ -24,6 +24,10 @@ public class KahanasRadianceAbility : Ability
 
 
         //hit boss
-        GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>().TakeDamage(damageAmount);
+        GameObject boss = GameObject.FindGameObjectWithTag("Boss");
+        if(boss != null)
+        {
+            boss.GetComponent<Boss>().TakeDamage(damageAmount);
+        }
     }
 }

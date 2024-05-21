@@ -100,21 +100,22 @@ public class LoadInfo : MonoBehaviour
         levelText.text = "Level: " + PlayerInfo.level;
 
 
-        
-        
-
-        //update all ability cooldowns  //maybe update it to only use the abilties the player currently has
-        for(int i = 0; i < abilities.Count; i++)
+        if(PlayerInfo.ability1 != null)
         {
-            if (abilities[i] != null)
-            {
-                abilities[i].CooldownUpdate(Time.deltaTime);
-            }
+            PlayerInfo.ability1.CooldownUpdate(Time.deltaTime);
+        }
+        if (PlayerInfo.ability2 != null)
+        {
+            PlayerInfo.ability2.CooldownUpdate(Time.deltaTime);
+        }
+        if (PlayerInfo.ability3 != null)
+        {
+            PlayerInfo.ability3.CooldownUpdate(Time.deltaTime);
         }
 
 
         //grey out the ability if cant use
-        if(PlayerInfo.ability1 != null && !PlayerInfo.ability1.IsReady())
+        if (PlayerInfo.ability1 != null && !PlayerInfo.ability1.IsReady())
         {
             GameObject.Find("Ability1").GetComponent<Image>().color = Color.grey;
         }
