@@ -21,7 +21,10 @@ public class LoadInfo : MonoBehaviour
 
     [SerializeField] GameObject UpgradeWindow;
 
-    
+
+    private Color cdColor = new Color(0.1f, 0.1f, 0.1f, 1);
+
+
     //Abilities
     public List<Ability> abilities = new() { };
 
@@ -113,11 +116,12 @@ public class LoadInfo : MonoBehaviour
             PlayerInfo.ability3.CooldownUpdate(Time.deltaTime);
         }
 
+        
 
         //grey out the ability if cant use
         if (PlayerInfo.ability1 != null && !PlayerInfo.ability1.IsReady())
         {
-            GameObject.Find("Ability1").GetComponent<Image>().color = Color.grey;
+            GameObject.Find("Ability1").GetComponent<Image>().color = cdColor;
         }
         else
         {
@@ -126,7 +130,7 @@ public class LoadInfo : MonoBehaviour
 
         if(PlayerInfo.ability2 != null && !PlayerInfo.ability2.IsReady())
         {
-            GameObject.Find("Ability2").GetComponent<Image>().color= Color.grey;
+            GameObject.Find("Ability2").GetComponent<Image>().color= cdColor;
         }
         else
         {
@@ -135,7 +139,7 @@ public class LoadInfo : MonoBehaviour
 
         if (PlayerInfo.ability3 != null && !PlayerInfo.ability3.IsReady())
         {
-            GameObject.Find("Ability3").GetComponent<Image>().color = Color.grey;
+            GameObject.Find("Ability3").GetComponent<Image>().color = cdColor;
         }
         else
         {
@@ -174,7 +178,7 @@ public class LoadInfo : MonoBehaviour
             //displays random abilities that the player does not have
 
             //window 1
-            GameObject.Find("Upgrade1Window").GetComponent<UpgradeWindow>().SetAbility(abilities[0]); //get random ability
+            GameObject.Find("Upgrade1Window").GetComponent<UpgradeWindow>().SetAbility(abilities[GetRandomAbilityIndex()]); //get random ability
             GameObject.Find("Upgrade1Image").GetComponent<Image>().sprite = GameObject.Find("Upgrade1Window").GetComponent<UpgradeWindow>().GetAbility().AbilityIcon; //get ability icon
             GameObject.Find("SpellName1").GetComponent<Text>().text = GameObject.Find("Upgrade1Window").GetComponent<UpgradeWindow>().GetAbility().AbilityName; //get ability name
             GameObject.Find("SpellDescription1").GetComponent<Text>().text = GameObject.Find("Upgrade1Window").GetComponent<UpgradeWindow>().GetAbility().AbilityDescription; //get ability desc

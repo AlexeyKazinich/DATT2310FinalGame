@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 4468661943356447429}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02, y: 0.2, z: 0}
+  m_LocalPosition: {x: 0.02, y: -0.035, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -133,7 +133,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRigidBody: {fileID: 5002399314228726786}
-  speed: 5
   spriteRenderer: {fileID: 0}
   idleSprites:
   - {fileID: 21300000, guid: 9ac58e40e142c654c834cb3ac819abd6, type: 3}
@@ -149,8 +148,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: abc2495932bad8e4383ad5035e5f65cb, type: 3}
   - {fileID: 21300000, guid: a7e7fa613b8c5da4e8f9a5b183a21081, type: 3}
   - {fileID: 21300000, guid: dd0d33b666e18cb4380322aafa5b9442, type: 3}
+  playerInfoPanel: {fileID: 0}
   ProjectilePrefab: {fileID: 6085471623864077163, guid: 66f1aafa7f0e840458511500d30a8c06, type: 3}
   LaunchOffset: {fileID: 640748918971225851}
+  invincible: 0
 --- !u!50 &5002399314228726786
 Rigidbody2D:
   serializedVersion: 4

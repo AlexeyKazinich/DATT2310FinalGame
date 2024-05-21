@@ -8,6 +8,7 @@ public class EndScreen : MonoBehaviour
 
     private void Start()
     {
+
         if (PlayerInfo.victory)
         {
             GameObject.Find("WinUI").SetActive(true);
@@ -18,6 +19,8 @@ public class EndScreen : MonoBehaviour
             GameObject.Find("WinUI").SetActive(false);
             GameObject.Find("LoseUI").SetActive(true);
         }
+
+
     }
     
 
