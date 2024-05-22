@@ -14,7 +14,7 @@ public class MusicManager : MonoBehaviour
     [Header("Background music")]
     public AudioClip backgroundMusic;
     public float backgroundMusicVolume = 0.5f;
-    private AudioSource backgroundMusicSource;
+    public AudioSource backgroundMusicSource;
 
     [Header("Projectile Sound")]
     public AudioClip projectileSound;

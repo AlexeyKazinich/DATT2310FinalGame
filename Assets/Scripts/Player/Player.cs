@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     public Transform LaunchOffset;
 
     public bool invincible = false;
+    public Canvas playerInfoCanvas;
 
 
     //prevent spam

@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour
     public AudioSource creditSound;
     public AudioSource settingSound;
     public AudioSource teamSound;
-
     public Slider backgroundMusicSlider;
     public Slider soundEffectsSlider;
     public Toggle bgMusicToggle;
@@ -52,6 +51,9 @@ public class GameManager : MonoBehaviour
 
         windowToggle.isOn = Screen.fullScreenMode == FullScreenMode.FullScreenWindow;
         windowToggle.onValueChanged.AddListener(OnScreenModeToggle);
+
+        backgroundMusic.volume = 1f / 2f;
+        Debug.Log("Volume: " + backgroundMusic.volume);
     }
     public void OnVolumeChanged(float value){
         backgroundMusic.volume = value;

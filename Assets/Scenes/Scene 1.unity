@@ -592,6 +592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundMusic: {fileID: 8300000, guid: 531f7fa3d4e17474a99b1814468ae169, type: 3}
   backgroundMusicVolume: 0.5
+  backgroundMusicSource: {fileID: 0}
   projectileSound: {fileID: 8300000, guid: b710ea02b43532a49a2c60b9cd8e10b1, type: 3}
   projectileSoundVolume: 0.5
 --- !u!4 &843979296
