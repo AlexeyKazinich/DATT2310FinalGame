@@ -594,6 +594,7 @@ MonoBehaviour:
   backgroundMusicVolume: 0.5
   projectileSound: {fileID: 8300000, guid: b710ea02b43532a49a2c60b9cd8e10b1, type: 3}
   projectileSoundVolume: 0.5
+  meleeSound: {fileID: 8300000, guid: 4087ee67481f9164e9e5cdfe98474503, type: 3}
 --- !u!4 &843979296
 Transform:
   m_ObjectHideFlags: 0

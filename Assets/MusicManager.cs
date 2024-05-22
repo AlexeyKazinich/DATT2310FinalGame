@@ -19,6 +19,9 @@ public class MusicManager : MonoBehaviour
     [Header("Projectile Sound")]
     public AudioClip projectileSound;
     public float projectileSoundVolume = 0.5f;
+
+    [Header("Melee sound")]
+    public AudioClip meleeSound;
     
 
     private void Awake()
@@ -60,6 +63,16 @@ public class MusicManager : MonoBehaviour
         audioSource.volume = projectileSoundVolume;
         audioSource.Play();
         Destroy(soundObject,projectileSound.length);
+    }
+
+    public void PlayMeleeSound()
+    {
+        GameObject soundObject = new GameObject("MeleeSound");
+        AudioSource audioSource = soundObject.AddComponent<AudioSource>();
+        audioSource.clip = meleeSound;
+        audioSource.volume = projectileSoundVolume;
+        audioSource.Play();
+        Destroy(soundObject, meleeSound.length);
     }
 
     public void AbilitySound(AudioClip soundClip)
