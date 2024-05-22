@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     private int idleIndex = 0;
     public Sprite[] movingSprites;
     private int movementIndex = 0;
-    
+
     //slow down the animation
     private int animSpeed = 3;
     private int animCounter = 0;
@@ -34,29 +34,41 @@ public class Player : MonoBehaviour
     private readonly float shootDelay = 0.25f; //0.25sec
 
 
+    private Camera mainCamera;
+
+    public GameObject swingPrefab;
+    private float swingDuration = 0.1f;
+    private bool canSwing = true;
+    private readonly float swingDelay = 0.2f; //0.25sec
+
+
     // Start is called before the first frame update
     void Start()
     {
-       playerInfoPanel.SetActive(false);
+        playerInfoPanel.SetActive(false);
+        mainCamera = Camera.main;
     }
-     public void Awake(){
+    public void Awake()
+    {
         spriteRenderer = GetComponent<SpriteRenderer>();
-     }
+    }
     // Update is called once per frame
     void Update()
     {
         Door door = FindObjectOfType<Door>();
 
         // For showing player info when tab is hold
-        if(Input.GetKeyDown(KeyCode.Tab) && door.tabKeyEnabled){
+        if (Input.GetKeyDown(KeyCode.Tab) && door.tabKeyEnabled)
+        {
             playerInfoPanel.SetActive(true);
         }
-        else if(Input.GetKeyUp(KeyCode.Tab)){
+        else if (Input.GetKeyUp(KeyCode.Tab))
+        {
             playerInfoPanel.SetActive(false);
         }
 
         //check if player is trying to shoot right click
-        if (Input.GetButtonDown("Fire2")) 
+        if (Input.GetButtonDown("Fire2"))
         {
             if (canShoot)
             {
@@ -68,13 +80,24 @@ public class Player : MonoBehaviour
             }
         }
 
-        
+        if (Input.GetButtonDown("Fire1"))
+        {
+            if (canSwing)
+            {
+                canSwing = false;
+                PerformMeleeAttack();
+                CoroutineRunner.Instance.RunCoroutine(ResetCanSwingDelay(swingDelay));
+            }
+        }
+
+
+
 
         //check if player trying to use abilities
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             print("pressing 1");
-            if(PlayerInfo.ability1 != null)
+            if (PlayerInfo.ability1 != null)
             {
                 print("ability is not null");
                 PlayerInfo.ability1.TryActivate();
@@ -83,7 +106,7 @@ public class Player : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             print("pressing 2");
-            if(PlayerInfo.ability2 != null)
+            if (PlayerInfo.ability2 != null)
             {
                 print("ability is not null");
                 PlayerInfo.ability2.TryActivate();
@@ -102,11 +125,60 @@ public class Player : MonoBehaviour
 
     }
 
+    private void PerformMeleeAttack()
+    {
+        Vector3 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 attackDirection = (mousePos - transform.position).normalized;
+
+        Vector3 spawnPosition = transform.position + (Vector3)attackDirection * 3f;
+
+
+        GameObject swing = Instantiate(swingPrefab, spawnPosition, Quaternion.identity);
+        Vector3 swingDir = mousePos - transform.position;
+        Vector3 rotation = transform.position - mousePos;
+        float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+        swing.transform.rotation = Quaternion.Euler(0, 0, rot + 270);
+
+        Destroy(swing, swingDuration);
+        MusicManager.Instance.PlayMeleeSound();
+
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, attackDirection, 2f);
+
+        foreach (RaycastHit2D hit in hits)
+        {
+            if (hit.collider != null)
+            {
+                if (hit.collider.CompareTag("Enemy"))
+                {
+                    Enemy enemy = hit.collider.GetComponent<Enemy>();
+                    if (enemy != null)
+                    {
+                        enemy.TakeDamage(PlayerInfo.BaseDamage);
+                    }
+                }
+                else if (hit.collider.CompareTag("Boss"))
+                {
+                    Boss boss = hit.collider.GetComponent<Boss>();
+                    if (boss != null)
+                    {
+                        boss.TakeDamage(PlayerInfo.BaseDamage);
+                    }
+                }
+            }
+        }
+    }
+
     //reset shoot var after delay
     private IEnumerator ResetCanShootAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
         canShoot = true;
+    }
+
+    private IEnumerator ResetCanSwingDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        canSwing = true;
     }
 
     public void AssignAbility(int index, Ability ability)
@@ -128,7 +200,8 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void PlayerIdle(){
+    private void PlayerIdle()
+    {
         if (animCounter == animSpeed)
         {
             idleIndex++;
@@ -139,7 +212,8 @@ public class Player : MonoBehaviour
             animCounter++;
         }
 
-        if(idleIndex >= idleSprites.Length){
+        if (idleIndex >= idleSprites.Length)
+        {
             idleIndex = 0;
         }
 
@@ -147,18 +221,20 @@ public class Player : MonoBehaviour
 
         //animator.speed = animationSpeed;
     }
-    private void PlayerMoving(){
-        if(animCounter == animSpeed)
+    private void PlayerMoving()
+    {
+        if (animCounter == animSpeed)
         {
             movementIndex++;
-            animCounter=0;
+            animCounter = 0;
         }
         else
         {
             animCounter++;
         }
 
-        if(movementIndex >= movingSprites.Length){
+        if (movementIndex >= movingSprites.Length)
+        {
             movementIndex = 0;
         }
 
@@ -170,7 +246,7 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         //if player holding movement keys
-        if(move != Vector2.zero)
+        if (move != Vector2.zero)
         {
             playerRigidBody.velocity = move * PlayerInfo.PlayerSpeed; //set the player velocity to the move vector * the speed
         }
@@ -186,11 +262,12 @@ public class Player : MonoBehaviour
         Door door = FindObjectOfType<Door>();
 
         // checks if control keys are enabled
-        if(door.controlKeysEnabled){
+        if (door.controlKeysEnabled)
+        {
             //normalize to create snappy movement
             move = new Vector2(moveX, moveY).normalized;
         }
-        
+
 
         //animation
         if (moveX < 0f)
@@ -250,5 +327,5 @@ public class Player : MonoBehaviour
         SceneManager.LoadScene(5); //end scene
     }
 
-    
+
 }
