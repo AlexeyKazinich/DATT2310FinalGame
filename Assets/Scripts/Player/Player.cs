@@ -35,10 +35,19 @@ public class Player : MonoBehaviour
     private readonly float shootDelay = 0.25f; //0.25sec
 
 
+    private Camera mainCamera;
+
+    public GameObject swingPrefab;
+    private float swingDuration = 0.1f;
+    private bool canSwing = true;
+    private readonly float swingDelay = 0.2f; //0.25sec
+
+
     // Start is called before the first frame update
     void Start()
     {
        playerInfoPanel.SetActive(false);
+        mainCamera = Camera.main;
     }
      public void Awake(){
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -68,6 +77,17 @@ public class Player : MonoBehaviour
 
             }
         }
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            if (canSwing)
+            {
+                canSwing = false;
+                PerformMeleeAttack();
+                CoroutineRunner.Instance.RunCoroutine(ResetCanSwingDelay(swingDelay));
+            }
+        }
+
 
         
 
@@ -103,11 +123,51 @@ public class Player : MonoBehaviour
 
     }
 
+    private void PerformMeleeAttack()
+    {
+        Vector3 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 attackDirection = (mousePos - transform.position).normalized;
+
+        Vector3 spawnPosition = transform.position + (Vector3)attackDirection * 3f;
+
+
+        GameObject swing = Instantiate(swingPrefab, spawnPosition, Quaternion.identity);
+        Vector3 swingDir = mousePos - transform.position;
+        Vector3 rotation = transform.position - mousePos;
+        float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+        swing.transform.rotation = Quaternion.Euler(0,0,rot+270);
+
+        Destroy(swing, swingDuration);
+        MusicManager.Instance.PlayMeleeSound();
+
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, attackDirection,2f);
+
+        foreach(RaycastHit2D hit in hits)
+        {
+            if(hit.collider != null)
+            {
+                if (hit.collider.CompareTag("Enemy")){
+                    Enemy enemy = hit.collider.GetComponent<Enemy>();
+                    if(enemy != null)
+                    {
+                        enemy.TakeDamage(PlayerInfo.BaseDamage);
+                    }
+                }
+            }
+        }
+    }
+
     //reset shoot var after delay
     private IEnumerator ResetCanShootAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
         canShoot = true;
+    }
+
+    private IEnumerator ResetCanSwingDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        canSwing = true;
     }
 
     public void AssignAbility(int index, Ability ability)

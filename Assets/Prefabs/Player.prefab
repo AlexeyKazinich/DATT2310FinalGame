@@ -152,6 +152,8 @@ MonoBehaviour:
   ProjectilePrefab: {fileID: 6085471623864077163, guid: 66f1aafa7f0e840458511500d30a8c06, type: 3}
   LaunchOffset: {fileID: 640748918971225851}
   invincible: 0
+  swingPrefab: {fileID: 4139682401649544919, guid: fb5e2a38ab54fcf45a9ff401379dd50c, type: 3}
+  swingDuration: 0.5
 --- !u!50 &5002399314228726786
 Rigidbody2D:
   serializedVersion: 4
